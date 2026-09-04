@@ -1,5 +1,6 @@
 :root {
-  --page-padding: clamp(1.5rem, 6vw, 3.5rem);
+  --page-padding: 1.5rem;
+  --content-gutter: 1.5rem;
   --color-background: #fcfcfc;
   --color-surface: #f7f7f7;
   --color-text-strong: #1e2125;
@@ -33,10 +34,10 @@ body {
   padding: var(--page-padding);
   background: var(--color-background);
   color: var(--color-text);
-  font-size: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  font-size: 0.875rem;
   font-feature-settings: "calt", "liga", "kern";
   letter-spacing: 0.006em;
-  line-height: 1.72;
+  line-height: 1.5rem;
   overflow-wrap: anywhere;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -49,7 +50,7 @@ body {
 
 .site-shell {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   width: min(100%, 56rem);
 }
 
@@ -58,11 +59,18 @@ body {
   width: 100%;
   max-width: 42rem;
   min-width: 0;
-  border-left: 1px solid var(--color-border);
+}
+
+.content-panel::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: var(--color-border);
+  content: "";
 }
 
 .page-content {
-  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+  padding-left: var(--content-gutter);
 }
 
 .top-fade {
@@ -90,8 +98,8 @@ h3 {
 
 .page-title {
   margin: 0 0 1.75rem;
-  font-size: 1.35rem;
-  line-height: 1.25;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .page-section + .page-section {
@@ -118,7 +126,7 @@ h3 {
 }
 
 .prose :where(p, ul, ol, blockquote, pre, figure) {
-  margin-block: 1.55rem;
+  margin: 1.75rem 0 0;
 }
 
 .prose :where(h2, h3) {
@@ -180,7 +188,30 @@ h3 {
   margin-block: 2rem;
 }
 
-@media (max-width: 42rem) {
+@media (min-width: 40rem) {
+  :root {
+    --page-padding: 2.5rem;
+    --content-gutter: 2.5rem;
+  }
+
+  body {
+    font-size: 0.9375rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-padding: 3.5rem;
+    --content-gutter: 3.5rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 39.999rem) {
   .top-fade {
     position: fixed;
     z-index: 10;
@@ -192,20 +223,21 @@ h3 {
     pointer-events: none;
     background: linear-gradient(to bottom, var(--color-background), transparent);
   }
+}
 
+@media (max-width: 26.249rem) {
   .site-shell {
     flex-direction: column;
   }
 
-  .content-panel {
-    max-width: none;
-    border-top: 1px solid var(--color-border);
-    border-left: 0;
+  .content-panel::before {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 1px;
   }
 
   .page-content {
-    padding-top: 1.5rem;
-    padding-left: 0;
+    padding: var(--content-gutter) 0 0;
   }
 }
 

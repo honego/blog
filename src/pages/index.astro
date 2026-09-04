@@ -1,12 +1,6 @@
 ---
-import { getCollection } from "astro:content";
-import ArticleList from "@components/ArticleList.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
 import { SITE } from "../config";
-
-const latestThoughts = (await getCollection("thoughts", ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 4);
 ---
 
 <SiteLayout>
@@ -20,13 +14,4 @@ const latestThoughts = (await getCollection("thoughts", ({ data }) => !data.draf
       <a href={SITE.github}>GitHub</a>.
     </p>
   </section>
-
-  {
-    latestThoughts.length > 0 && (
-      <section class="page-section">
-        <h2 class="section-heading">Latest thoughts</h2>
-        <ArticleList entries={latestThoughts} />
-      </section>
-    )
-  }
 </SiteLayout>
