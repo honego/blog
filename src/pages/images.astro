@@ -1,17 +1,86 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import SiteLayout from "@layouts/SiteLayout.astro";
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/**/*.{avif,gif,jpeg,jpg,png,webp}",
+  { eager: true },
+);
+
+const images = Object.entries(imageModules).map(([path, module]) => ({
+  src: module.default,
+  alt:
+    path
+      .split("/")
+      .pop()
+      ?.replace(/\.[^.]+$/, "")
+      .replace(/[-_]+/g, " ") ?? "Image",
+}));
 ---
 
 <SiteLayout title="Images" description="A growing collection of photographs and visual notes.">
   <h1 class="page-title">Images</h1>
-  <p class="empty-state">The image collection is taking shape.</p>
+  <div class="image-list" data-image-list>
+    {
+      images.map(({ src, alt }) => (
+        <div class="image-item">
+          <Image
+            src={src}
+            alt={alt}
+            width={1232}
+            widths={[616, 1232]}
+            sizes="(min-width: 40rem) 19rem, calc(100vw - 3rem)"
+            format="webp"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <script>
+    const imageList = document.querySelector("[data-image-list]");
+
+    if (imageList) {
+      const images = Array.from(imageList.children);
+
+      for (let index = images.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [images[index], images[randomIndex]] = [images[randomIndex], images[index]];
+      }
+
+      imageList.replaceChildren(...images);
+    }
+  </script>
 </SiteLayout>
 
 <style>
-  .empty-state {
-    margin: 0;
-    color: var(--color-text-faint);
-    font-family: var(--font-serif);
-    font-style: italic;
+  .image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+
+  .image-item {
+    display: flex;
+    flex: 1 1 33.333%;
+    max-width: calc(50% - 0.4375rem);
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-surface), transparent);
+  }
+
+  .image-item :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 39.999rem) {
+    .image-item {
+      min-width: 100%;
+      max-width: 100%;
+    }
   }
 </style>
