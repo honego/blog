@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Lora Navigation";
+  src: url("../assets/fonts/LoraItalicVariable.woff2") format("woff2");
+  font-display: block;
+  font-style: normal;
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: "Iosevka Fixed Curly";
+  src: url("../assets/fonts/IosevkaFixedCurlyExtendedMedium.woff2") format("woff2");
+  font-display: block;
+  font-style: normal;
+  font-weight: 400;
+}

@@ -1,0 +1,91 @@
+:root {
+  --page-padding: 1.5rem;
+  --content-gutter: 1.5rem;
+  --color-background: #fcfcfc;
+  --color-surface: #f7f7f7;
+  --color-text-strong: #1e2125;
+  --color-text: #4a515b;
+  --color-text-muted: #697381;
+  --color-text-faint: #9aa1aa;
+  --color-border: rgba(110, 119, 130, 0.27);
+  --color-selection: rgba(149, 165, 172, 0.25);
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: Iowan Old Style, Baskerville, Georgia, "Times New Roman", serif;
+  --font-mono: "Iosevka Fixed Curly", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  color-scheme: only light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  background: var(--color-background);
+  scroll-behavior: smooth;
+  text-rendering: geometricprecision;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: var(--page-padding);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-feature-settings: "calt", "liga", "kern";
+  letter-spacing: 0.006em;
+  line-height: 1.5rem;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--color-selection);
+  color: #32445d;
+}
+
+a {
+  color: var(--color-text-strong);
+  text-decoration-color: var(--color-border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text-strong);
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --page-padding: 2.5rem;
+    --content-gutter: 2.5rem;
+  }
+
+  body {
+    font-size: 0.9375rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-padding: 3.5rem;
+    --content-gutter: 3.5rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+}

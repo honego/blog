@@ -1,0 +1,27 @@
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 180ms ease both fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation: 280ms 80ms ease both fade-in;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
