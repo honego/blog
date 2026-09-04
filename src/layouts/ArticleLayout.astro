@@ -12,7 +12,7 @@ type Props = {
 const { title, description, date, updated } = Astro.props;
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout title={title} description={description} wide>
   <a class="back-link" href="/thoughts">← Thoughts</a>
   <header class="article-header">
     <h1>{title}</h1>
@@ -28,7 +28,7 @@ const { title, description, date, updated } = Astro.props;
       }
     </div>
   </header>
-  <article class="prose">
+  <article class="prose article-prose">
     <slot />
   </article>
 </SiteLayout>
@@ -47,6 +47,7 @@ const { title, description, date, updated } = Astro.props;
   }
 
   .article-header {
+    max-width: calc(var(--content-width) - var(--content-gutter));
     margin-bottom: 2.75rem;
   }
 

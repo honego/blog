@@ -1,6 +1,7 @@
 :root {
   --page-padding: 1.5rem;
   --content-gutter: 1.5rem;
+  --content-width: 42rem;
   --color-background: #fcfcfc;
   --color-surface: #f7f7f7;
   --color-text-strong: #1e2125;

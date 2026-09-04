@@ -4,11 +4,19 @@
   width: min(100%, 56rem);
 }
 
+.site-shell--wide {
+  width: calc(100% - 4rem - var(--content-gutter));
+}
+
 .content-panel {
   position: relative;
   width: 100%;
-  max-width: 42rem;
+  max-width: var(--content-width);
   min-width: 0;
+}
+
+.site-shell--wide .content-panel {
+  max-width: none;
 }
 
 .content-panel::before {
@@ -60,6 +68,10 @@
 @media (max-width: 26.249rem) {
   .site-shell {
     flex-direction: column;
+  }
+
+  .site-shell--wide {
+    width: 100%;
   }
 
   .content-panel::before {
