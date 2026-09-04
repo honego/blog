@@ -24,8 +24,16 @@ const isActive = (href: string) =>
   .side-nav {
     flex: 0 0 4rem;
     margin-right: var(--content-gutter);
-    font-family: var(--font-serif);
-    font-style: italic;
+    font-family: "Lora Navigation", var(--font-serif);
+    font-feature-settings: "calt", "cpsp", "cv01", "cv03", "cv04", "liga", "ordn", "ss03";
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+      "opsz" 32,
+      "wght" 480;
+    font-weight: 400;
+    font-variant-ligatures: contextual;
+    letter-spacing: -0.006em;
   }
 
   ul {
