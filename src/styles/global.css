@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Lora Navigation";
-  src: url("/fonts/LoraItalicVariable.woff2") format("woff2");
+  src: url("../assets/fonts/LoraItalicVariable.woff2") format("woff2");
   font-display: block;
   font-style: normal;
   font-weight: 400 700;
