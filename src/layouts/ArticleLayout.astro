@@ -1,0 +1,68 @@
+---
+import FormattedDate from "@components/FormattedDate.astro";
+import SiteLayout from "./SiteLayout.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  date: Date;
+  updated?: Date;
+};
+
+const { title, description, date, updated } = Astro.props;
+---
+
+<SiteLayout title={title} description={description}>
+  <a class="back-link" href="/thoughts">← Thoughts</a>
+  <header class="article-header">
+    <h1>{title}</h1>
+    <div class="article-date">
+      <FormattedDate date={date} />
+      {
+        updated && (
+          <span>
+            {" "}
+            · updated <FormattedDate date={updated} />
+          </span>
+        )
+      }
+    </div>
+  </header>
+  <article class="prose">
+    <slot />
+  </article>
+</SiteLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-faint);
+    text-decoration: none;
+  }
+
+  .back-link:hover,
+  .back-link:focus-visible {
+    color: var(--color-text-strong);
+  }
+
+  .article-header {
+    margin-bottom: 2.75rem;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--color-text-strong);
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+    font-weight: 620;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+  }
+
+  .article-date {
+    margin-top: 0.55rem;
+    color: var(--color-text-faint);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

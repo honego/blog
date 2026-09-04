@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import ArticleList from "@components/ArticleList.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { SITE } from "../config";
+
+const latestThoughts = (await getCollection("thoughts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+---
+
+<SiteLayout>
+  <section class="page-section prose">
+    <h1 class="page-title">{SITE.author}</h1>
+    <p>I build and maintain open-source software, mostly around web infrastructure and developer tooling.</p>
+    <p>
+      This site is where I keep notes about the web, the systems behind it, and the small decisions that make software
+      easier to operate. You can browse my <a href="/thoughts">thoughts</a>, see the
+      <a href="/projects">projects</a> I am working on, or find me on
+      <a href={SITE.github}>GitHub</a>.
+    </p>
+  </section>
+
+  {
+    latestThoughts.length > 0 && (
+      <section class="page-section">
+        <h2 class="section-heading">Latest thoughts</h2>
+        <ArticleList entries={latestThoughts} />
+      </section>
+    )
+  }
+</SiteLayout>

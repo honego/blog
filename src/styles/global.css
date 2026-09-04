@@ -1,0 +1,238 @@
+:root {
+  --page-padding: clamp(1.5rem, 6vw, 3.5rem);
+  --color-background: #fcfcfc;
+  --color-surface: #f7f7f7;
+  --color-text-strong: #1e2125;
+  --color-text: #4a515b;
+  --color-text-muted: #697381;
+  --color-text-faint: #9aa1aa;
+  --color-border: rgba(110, 119, 130, 0.27);
+  --color-selection: rgba(149, 165, 172, 0.25);
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: Iowan Old Style, Baskerville, Georgia, "Times New Roman", serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  color-scheme: only light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  background: var(--color-background);
+  scroll-behavior: smooth;
+  text-rendering: geometricprecision;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: var(--page-padding);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  font-feature-settings: "calt", "liga", "kern";
+  letter-spacing: 0.006em;
+  line-height: 1.72;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--color-selection);
+  color: #32445d;
+}
+
+.site-shell {
+  display: flex;
+  align-items: flex-start;
+  width: min(100%, 56rem);
+}
+
+.content-panel {
+  position: relative;
+  width: 100%;
+  max-width: 42rem;
+  min-width: 0;
+  border-left: 1px solid var(--color-border);
+}
+
+.page-content {
+  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.top-fade {
+  display: none;
+}
+
+a {
+  color: var(--color-text-strong);
+  text-decoration-color: var(--color-border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text-strong);
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+.page-title {
+  margin: 0 0 1.75rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.page-section + .page-section {
+  margin-top: 4.5rem;
+}
+
+.section-heading {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.prose {
+  hanging-punctuation: first allow-end last;
+  hyphens: auto;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+.prose :where(p, ul, ol, blockquote, pre, figure) {
+  margin-block: 1.55rem;
+}
+
+.prose :where(h2, h3) {
+  margin: 2.6rem 0 1rem;
+  line-height: 1.3;
+}
+
+.prose h2 {
+  font-size: 1.2rem;
+}
+
+.prose h3 {
+  font-size: 1rem;
+}
+
+.prose :where(ul, ol) {
+  padding-left: 1.35rem;
+}
+
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-text-muted);
+  color: var(--color-text-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.prose code {
+  padding: 0.12em 0.28em;
+  background: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.prose pre {
+  max-width: 100%;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border);
+  line-height: 1.55;
+}
+
+.prose pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.prose img,
+.prose video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-block: 2rem;
+}
+
+@media (max-width: 42rem) {
+  .top-fade {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1.5rem;
+    pointer-events: none;
+    background: linear-gradient(to bottom, var(--color-background), transparent);
+  }
+
+  .site-shell {
+    flex-direction: column;
+  }
+
+  .content-panel {
+    max-width: none;
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .page-content {
+    padding-top: 1.5rem;
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 180ms ease both fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation: 280ms 80ms ease both fade-in;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}

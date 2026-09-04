@@ -1,0 +1,10 @@
+.agents
+.codex
+.idea
+.vscode
+
+# Ignore build output
+.astro
+.pnpm-store
+dist
+node_modules

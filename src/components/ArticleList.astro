@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+type Props = {
+  entries: CollectionEntry<"thoughts">[];
+};
+
+const { entries } = Astro.props;
+---
+
+<ul class="entry-list">
+  {
+    entries.map((entry) => (
+      <li>
+        <a href={`/thoughts/${entry.id}/`}>
+          <span class="entry-title">{entry.data.title}</span>
+          <span class="dot-leader" aria-hidden="true" />
+          <span class="entry-date">
+            <FormattedDate date={entry.data.date} />
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .entry-list {
+    display: grid;
+    gap: 0.12rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-inline: -0.5rem;
+    padding: 0.08rem 0.5rem;
+    color: inherit;
+    font-weight: 540;
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--color-text-strong);
+  }
+
+  a:focus-visible {
+    border-radius: 0.15rem;
+    outline: 1px dotted var(--color-text-muted);
+    outline-offset: 1px;
+  }
+
+  .entry-title {
+    min-width: 0;
+  }
+
+  .dot-leader {
+    min-width: 1.5rem;
+    flex: 1;
+    overflow: hidden;
+    color: var(--color-border);
+    white-space: nowrap;
+  }
+
+  .dot-leader::after {
+    content: "······························································";
+    letter-spacing: 0.22rem;
+  }
+
+  .entry-date {
+    color: var(--color-text-faint);
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 32rem) {
+    a {
+      align-items: flex-start;
+    }
+
+    .dot-leader {
+      display: none;
+    }
+
+    .entry-date {
+      margin-left: auto;
+      padding-left: 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>
