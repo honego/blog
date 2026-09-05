@@ -1,6 +1,6 @@
 ---
 import loraFontUrl from "../assets/fonts/LoraItalicVariable.woff2?url";
-import { SITE } from "../config";
+import { ANALYTICS, SITE } from "../config";
 
 type Props = {
   title?: string;
@@ -30,5 +30,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
+
+{ANALYTICS && <script is:inline defer src={ANALYTICS.src} data-website-id={ANALYTICS.websiteId} />}
 
 <title>{pageTitle}</title>
