@@ -44,14 +44,14 @@
   align-items: center;
   justify-content: flex-end;
   width: var(--side-nav-width);
-  gap: 0.625rem;
+  gap: 0.9375rem;
 }
 
 .icon-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.125rem;
+  width: auto;
   height: 2.125rem;
   padding: 0;
   border: 0;
@@ -75,9 +75,13 @@
 
 .icon-button .icon {
   display: block;
-  width: 1.125rem;
-  height: 1.125rem;
+  width: var(--icon-size, 1.125rem);
+  height: var(--icon-size, 1.125rem);
   transition: transform 250ms ease;
+}
+
+.rss-link {
+  --icon-size: 1rem;
 }
 
 .icon-button:hover .icon {
@@ -86,10 +90,6 @@
 
 .theme-toggle:hover .icon {
   transform: rotate(20deg);
-}
-
-.theme-toggle {
-  justify-content: flex-end;
 }
 
 .theme-toggle:active .icon {
@@ -218,11 +218,9 @@
   .site-actions {
     position: static;
     width: auto;
-    gap: 0.25rem;
   }
 
   .site-actions .icon-button {
-    width: 2.25rem;
     height: 2.25rem;
   }
 }
