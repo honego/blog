@@ -1,11 +1,129 @@
 ---
-import SiteLayout from "@layouts/SiteLayout.astro";
+// Adapted from: https://github.com/honeok/config/blob/main/webserver/html/404.html
+import Head from "@components/Head.astro";
+import "../styles/global.css";
 ---
 
-<SiteLayout title="Not found" description="The requested page could not be found.">
-  <h1 class="page-title">Page not found</h1>
-  <div class="prose">
-    <p>The page may have moved, or the address may be incorrect.</p>
-    <p><a href="/">Return home</a></p>
-  </div>
-</SiteLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title="404 Not Found" description="The requested page could not be found." />
+  </head>
+  <body class="not-found-page">
+    <main class="not-found" aria-labelledby="not-found-title">
+      <div class="robot" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <rect x="35" y="50" width="30" height="40" rx="5" class="robot-body"></rect>
+          <circle cx="50" cy="30" r="15" class="robot-head"></circle>
+          <circle cx="43" cy="27" r="3" class="robot-eyes"></circle>
+          <circle cx="57" cy="27" r="3" class="robot-eyes"></circle>
+          <circle cx="43" cy="27" r="1" class="robot-pupils"></circle>
+          <circle cx="57" cy="27" r="1" class="robot-pupils"></circle>
+          <rect x="20" y="55" width="15" height="5" rx="2" class="robot-arm"></rect>
+          <circle cx="20" cy="57.5" r="3" class="robot-break"></circle>
+          <rect x="40" y="90" width="8" height="10" class="robot-leg"></rect>
+          <rect x="52" y="90" width="8" height="5" class="robot-leg"></rect>
+          <circle cx="56" cy="95" r="2" class="robot-break"></circle>
+          <line x1="50" y1="15" x2="50" y2="10" class="robot-antenna"></line>
+          <circle cx="50" cy="8" r="2" class="robot-signal"></circle>
+        </svg>
+      </div>
+      <h1 id="not-found-title">404 Not Found</h1>
+      <p>That's an error.</p>
+      <p>The requested URL was not found on this server. That's all we know.</p>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(html) {
+    height: 100%;
+  }
+
+  .not-found-page {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: clamp(1rem, 4vw, 2rem);
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #333;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    text-align: center;
+  }
+
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 40rem);
+  }
+
+  .robot {
+    width: clamp(10rem, 50vw, 18.75rem);
+    aspect-ratio: 1;
+    margin: 0 auto clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  .robot svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .robot-body,
+  .robot-antenna {
+    fill: #4285f4;
+    stroke: #4285f4;
+  }
+
+  .robot-head {
+    fill: #34a853;
+  }
+
+  .robot-eyes {
+    fill: #fff;
+  }
+
+  .robot-pupils {
+    fill: #000;
+  }
+
+  .robot-arm,
+  .robot-signal {
+    fill: #ea4335;
+  }
+
+  .robot-leg {
+    fill: #fbbc05;
+  }
+
+  .robot-break {
+    fill: #ff6b6b;
+  }
+
+  .robot-antenna {
+    stroke-width: 2;
+  }
+
+  h1 {
+    margin: 0.625rem 0;
+    color: inherit;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: 37.5rem;
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    line-height: 1.5;
+  }
+</style>
