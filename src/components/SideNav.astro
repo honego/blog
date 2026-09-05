@@ -1,4 +1,5 @@
 ---
+import SiteActions from "@components/SiteActions.astro";
 import { NAV_ITEMS } from "../config";
 
 const pathname = Astro.url.pathname;
@@ -19,6 +20,7 @@ const isActive = (href: string) =>
       ))
     }
   </ul>
+  <SiteActions />
 </nav>
 
 <style>
@@ -76,8 +78,12 @@ const isActive = (href: string) =>
 
   @media (max-width: 26.249rem) {
     .side-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       width: 100%;
       margin: 0 0 var(--content-gutter);
+      gap: 0.75rem;
     }
 
     ul {

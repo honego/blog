@@ -10,12 +10,26 @@
   --color-text-faint: #9aa1aa;
   --color-border: rgba(110, 119, 130, 0.27);
   --color-selection: rgba(149, 165, 172, 0.25);
+  --color-selection-text: #32445d;
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: Iowan Old Style, Baskerville, Georgia, "Times New Roman", serif;
   --font-mono: "Iosevka Fixed Curly", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  color-scheme: only light;
+  color-scheme: light;
   font-family: var(--font-sans);
   font-synthesis: none;
+}
+
+:root[data-theme="dark"] {
+  --color-background: #1a1a1a;
+  --color-surface: #222;
+  --color-text-strong: #e5e5e5;
+  --color-text: #b8b8b8;
+  --color-text-muted: #a3a3a3;
+  --color-text-faint: #737373;
+  --color-border: rgba(163, 163, 163, 0.27);
+  --color-selection: rgba(163, 163, 163, 0.25);
+  --color-selection-text: #e5e5e5;
+  color-scheme: dark;
 }
 
 * {
@@ -46,7 +60,7 @@ body {
 
 ::selection {
   background: var(--color-selection);
-  color: #32445d;
+  color: var(--color-selection-text);
 }
 
 a {
