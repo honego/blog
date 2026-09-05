@@ -39,9 +39,11 @@
   position: fixed;
   z-index: 20;
   bottom: max(var(--page-padding), env(safe-area-inset-bottom));
-  left: max(0.5rem, calc(var(--page-padding) - 0.875rem));
+  left: var(--page-padding);
   display: inline-flex;
   align-items: center;
+  justify-content: flex-end;
+  width: var(--side-nav-width);
   gap: 0.625rem;
 }
 
@@ -84,6 +86,10 @@
 
 .theme-toggle:hover .icon {
   transform: rotate(20deg);
+}
+
+.theme-toggle {
+  justify-content: flex-end;
 }
 
 .theme-toggle:active .icon {
@@ -211,6 +217,7 @@
 
   .site-actions {
     position: static;
+    width: auto;
     gap: 0.25rem;
   }
 
