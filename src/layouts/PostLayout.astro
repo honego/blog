@@ -12,7 +12,7 @@ type Props = {
 const { title, description, date, updated } = Astro.props;
 ---
 
-<SiteLayout title={title} description={description} wide>
+<SiteLayout title={title} description={description} type="article" publishedTime={date} wide>
   <a class="back-link" href="/">← Blog</a>
   <header class="post-header">
     <h1>{title}</h1>

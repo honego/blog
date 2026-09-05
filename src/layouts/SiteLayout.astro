@@ -7,15 +7,17 @@ type Props = {
   title?: string;
   description?: string;
   wide?: boolean;
+  type?: "website" | "article";
+  publishedTime?: Date;
 };
 
-const { title, description, wide = false } = Astro.props;
+const { title, description, wide = false, type, publishedTime } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={title} description={description} />
+    <Head title={title} description={description} type={type} publishedTime={publishedTime} />
   </head>
   <body>
     <div class="top-fade" aria-hidden="true"></div>
