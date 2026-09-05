@@ -91,7 +91,7 @@ function formatPost(post: Post): string {
 
 ```json
 {
-  "name": "blog",
+  "name": "hlog",
   "private": true,
   "scripts": {
     "build": "astro check && astro build"
@@ -115,7 +115,7 @@ jobs:
 ## TOML
 
 ```toml
-name = "blog"
+name = "hlog"
 compatibility_date = "2026-09-05"
 
 [assets]
