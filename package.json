@@ -9,10 +9,12 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.0",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@lucide/astro": "^1.28.0",
     "astro": "^7.3.1",
+    "satteri-imgattr": "^0.1.1",
     "sharp": "^0.35.4"
   },
   "devDependencies": {

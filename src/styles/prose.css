@@ -11,6 +11,10 @@
   max-width: calc(var(--content-width) - var(--content-gutter));
 }
 
+.post-prose > :first-child:has(img, video) {
+  max-width: none;
+}
+
 .prose > :last-child {
   margin-bottom: 0;
 }

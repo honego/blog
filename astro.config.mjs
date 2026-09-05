@@ -1,5 +1,7 @@
 import sitemap from "@astrojs/sitemap";
+import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
+import imgAttr from "satteri-imgattr";
 
 export default defineConfig({
   site: "https://blog.honeok.com",
@@ -20,6 +22,9 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    processor: satteri({
+      hastPlugins: [imgAttr()],
+    }),
     shikiConfig: {
       themes: {
         light: "github-light",
