@@ -88,34 +88,54 @@
   transform: scale(1.06);
 }
 
-.theme-toggle:hover .icon {
-  transform: rotate(20deg);
+.theme-toggle {
+  position: relative;
+  width: var(--icon-size, 1.125rem);
 }
 
-.theme-toggle:active .icon {
-  transform: rotate(90deg);
+.theme-toggle .icon {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.75);
+  transition:
+    opacity 180ms ease-out,
+    transform 280ms ease-out;
 }
 
-.theme-toggle .icon-moon,
-.theme-toggle .icon-system {
-  display: none;
+.theme-toggle .icon-sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 :root[data-theme="dark"] .theme-toggle .icon-moon {
-  display: block;
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 :root[data-theme="dark"] .theme-toggle .icon-sun {
-  display: none;
+  opacity: 0;
+  transform: rotate(90deg) scale(0.75);
 }
 
 :root[data-theme-mode="system"] .theme-toggle .icon-system {
-  display: block;
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 :root[data-theme-mode="system"] .theme-toggle .icon-moon,
 :root[data-theme-mode="system"] .theme-toggle .icon-sun {
-  display: none;
+  opacity: 0;
+  transform: rotate(90deg) scale(0.75);
+}
+
+:root:not([data-theme="dark"]):not([data-theme-mode="system"]) .theme-toggle:is(:hover, :focus-visible) .icon-sun,
+:root[data-theme="dark"]:not([data-theme-mode="system"]) .theme-toggle:is(:hover, :focus-visible) .icon-moon,
+:root[data-theme-mode="system"] .theme-toggle:is(:hover, :focus-visible) .icon-system {
+  transform: rotate(20deg) scale(1.06);
+}
+
+.theme-toggle:active .icon {
+  transform: rotate(90deg) scale(0.85);
 }
 
 .site-actions .icon-button[data-tooltip] {

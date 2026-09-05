@@ -55,6 +55,7 @@ body {
   letter-spacing: 0.006em;
   line-height: 1.5rem;
   overflow-wrap: anywhere;
+  transition: background-color 150ms ease-out;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
