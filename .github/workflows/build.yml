@@ -35,5 +35,6 @@ jobs:
 
       - name: "Install dependencies and build"
         run: |
+          set -eExo pipefail
           pnpm install --frozen-lockfile
           pnpm build
