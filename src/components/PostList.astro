@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 type Props = {
-  entries: CollectionEntry<"thoughts">[];
+  entries: CollectionEntry<"posts">[];
 };
 
 const { entries } = Astro.props;
@@ -13,7 +13,7 @@ const { entries } = Astro.props;
   {
     entries.map((entry) => (
       <li>
-        <a href={`/thoughts/${entry.id}/`}>
+        <a href={`/${entry.data.id}.html`}>
           <span class="entry-title">{entry.data.title}</span>
           <span class="dot-leader" aria-hidden="true" />
           <span class="entry-date">

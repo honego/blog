@@ -1,0 +1,15 @@
+/index.html / 308
+/tags/ /tags 308
+/tags/index.html /tags 308
+/images/ /images 308
+/images/index.html /images 308
+/about/ /about 308
+/about/index.html /about 308
+
+/ /index.html 200
+/tags /tags/index.html 200
+/images /images/index.html 200
+/about /about/index.html 200
+/tags/:tag/index.html /tags/:tag 308
+/tags/:tag/ /tags/:tag 308
+/tags/:tag /tags/:tag/index.html 200

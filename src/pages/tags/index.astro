@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "@layouts/SiteLayout.astro";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const tags = [...new Set(posts.flatMap(({ data }) => data.tags))].sort((a, b) => a.localeCompare(b));
+---
+
+<SiteLayout title="Tags" description="Browse posts by tag.">
+  <h1 class="page-title">Tags</h1>
+  {
+    tags.length > 0 ? (
+      <ul class="tag-list">
+        {tags.map((tag) => (
+          <li>
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No tags yet.</p>
+    )
+  }
+</SiteLayout>
+
+<style>
+  .tag-list {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

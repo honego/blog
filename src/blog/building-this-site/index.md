@@ -1,7 +1,9 @@
 ---
+id: 1
 title: Building this site
 description: A minimal Astro writing setup inspired by two very different personal sites.
 date: 2026-09-04
+tags: []
 ---
 
 This site combines two ideas: the quiet, narrow reading rhythm of [shud.in](https://shud.in) and the straightforward content model of [Astro Nano](https://github.com/markhorn-dev/astro-nano).

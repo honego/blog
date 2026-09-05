@@ -2,8 +2,9 @@
 import { NAV_ITEMS } from "../config";
 
 const pathname = Astro.url.pathname;
+const isPost = /^\/[1-9]\d*\.html$/.test(pathname);
 const isActive = (href: string) =>
-  href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+  href === "/" ? pathname === href || isPost : pathname === href || pathname.startsWith(`${href}/`);
 ---
 
 <nav class="side-nav" aria-label="Primary navigation">

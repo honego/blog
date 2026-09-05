@@ -3,22 +3,22 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import type { APIRoute } from "astro";
 import { SITE } from "../config";
 
-type Thought = CollectionEntry<"thoughts">;
+type Post = CollectionEntry<"posts">;
 
 export const GET: APIRoute = async (context) => {
-  const thoughts = (await getCollection("thoughts"))
-    .filter((thought: Thought) => !thought.data.draft)
-    .sort((a: Thought, b: Thought) => b.data.date.valueOf() - a.data.date.valueOf());
+  const posts = (await getCollection("posts"))
+    .filter((post: Post) => !post.data.draft)
+    .sort((a: Post, b: Post) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: `${SITE.title} — Thoughts`,
+    title: SITE.title,
     description: SITE.description,
     site: context.site!,
-    items: thoughts.map((thought: Thought) => ({
-      title: thought.data.title,
-      description: thought.data.description,
-      pubDate: thought.data.date,
-      link: `/thoughts/${thought.id}/`,
+    items: posts.map((post: Post) => ({
+      title: post.data.title,
+      description: post.data.description,
+      pubDate: post.data.date,
+      link: `/${post.data.id}.html`,
     })),
   });
 };

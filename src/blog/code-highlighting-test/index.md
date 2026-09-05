@@ -1,7 +1,10 @@
 ---
+id: 2
 title: Code highlighting test
 description: A visual check for common fenced code blocks.
 date: 2026-09-05
+tags:
+  - nginx
 ---
 
 This page checks syntax highlighting, spacing, overflow, and the shared monospace font across common code languages.
@@ -42,7 +45,7 @@ done
 ## JavaScript
 
 ```js
-const posts = await getCollection("thoughts");
+const posts = await getCollection("posts");
 
 const published = posts.filter(({ data }) => !data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ```

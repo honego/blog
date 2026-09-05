@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import PostList from "@components/PostList.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  const tags = [...new Set(posts.flatMap(({ data }) => data.tags))];
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts.filter(({ data }) => data.tags.includes(tag)),
+    },
+  }));
+}
+
+type Props = {
+  tag: string;
+  posts: CollectionEntry<"posts">[];
+};
+
+const { tag, posts } = Astro.props;
+---
+
+<SiteLayout title={tag} description={`Posts tagged ${tag}.`}>
+  <h1 class="page-title">{tag}</h1>
+  <PostList entries={posts} />
+</SiteLayout>

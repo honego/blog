@@ -8,8 +8,8 @@ export const SITE = {
 
 // 左侧导航
 export const NAV_ITEMS = [
-  { href: "/", label: "About" },
-  { href: "/thoughts", label: "Thoughts" },
-  { href: "/projects", label: "Projects" },
+  { href: "/", label: "Blog" },
+  { href: "/tags", label: "Tags" },
   { href: "/images", label: "Images" },
+  { href: "/about", label: "About" },
 ] as const;

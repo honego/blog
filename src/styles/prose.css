@@ -7,7 +7,7 @@
   margin-top: 0;
 }
 
-.article-prose > :first-child {
+.post-prose > :first-child {
   max-width: calc(var(--content-width) - var(--content-gutter));
 }
 

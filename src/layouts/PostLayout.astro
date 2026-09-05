@@ -13,10 +13,10 @@ const { title, description, date, updated } = Astro.props;
 ---
 
 <SiteLayout title={title} description={description} wide>
-  <a class="back-link" href="/thoughts">← Thoughts</a>
-  <header class="article-header">
+  <a class="back-link" href="/">← Blog</a>
+  <header class="post-header">
     <h1>{title}</h1>
-    <div class="article-date">
+    <div class="post-date">
       <FormattedDate date={date} />
       {
         updated && (
@@ -28,7 +28,7 @@ const { title, description, date, updated } = Astro.props;
       }
     </div>
   </header>
-  <article class="prose article-prose">
+  <article class="prose post-prose">
     <slot />
   </article>
 </SiteLayout>
@@ -46,7 +46,7 @@ const { title, description, date, updated } = Astro.props;
     color: var(--color-text-strong);
   }
 
-  .article-header {
+  .post-header {
     max-width: calc(var(--content-width) - var(--content-gutter));
     margin-bottom: 2.75rem;
   }
@@ -60,7 +60,7 @@ const { title, description, date, updated } = Astro.props;
     line-height: 1.15;
   }
 
-  .article-date {
+  .post-date {
     margin-top: 0.55rem;
     color: var(--color-text-faint);
     font-size: 0.875rem;
