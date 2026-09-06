@@ -1,0 +1,26 @@
+---
+import { FILING, SITE } from "../config";
+
+const year = new Date().getFullYear();
+const filingParts = FILING?.label.split(/(\d+)/) ?? [];
+const filingHref = FILING?.href ?? "";
+---
+
+<footer class:list={["site-footer", { "site-footer--with-filing": FILING }]}>
+  <span>© {year} {SITE.author}. All rights reserved.</span>
+  {
+    FILING && (
+      <span>
+        {filingParts.map((part) =>
+          /^\d+$/.test(part) ? (
+            <a href={filingHref} target="_blank" rel="noopener">
+              {part}
+            </a>
+          ) : (
+            part
+          ),
+        )}
+      </span>
+    )
+  }
+</footer>

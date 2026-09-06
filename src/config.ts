@@ -6,6 +6,12 @@ export const SITE = {
   github: "https://github.com/honeok", // GitHub 主页
 } as const;
 
+// 备案信息 设置为 null 时不显示
+export const FILING: { label: string; href: string } | null = {
+  label: "萌ICP备20256611号",
+  href: "https://icp.gov.moe/?keyword=20256611",
+};
+
 // 网站统计 设置为 null 时不加载
 export const ANALYTICS: { src: string; websiteId: string } | null = {
   src: "https://u.honeok.com/script.js",
