@@ -9,6 +9,6 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
 ---
 
 <SiteLayout>
-  <h1 class="page-title">Blog</h1>
+  <h1 class="visually-hidden">Blog</h1>
   {posts.length > 0 ? <PostList entries={posts} /> : <p>No published posts yet.</p>}
 </SiteLayout>

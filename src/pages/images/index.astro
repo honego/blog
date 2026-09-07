@@ -19,7 +19,7 @@ const images = Object.entries(imageModules).map(([path, module]) => ({
 ---
 
 <SiteLayout title="Images" description="A growing collection of photographs and visual notes.">
-  <h1 class="page-title">Images</h1>
+  <h1 class="visually-hidden">Images</h1>
   <div class="image-list" data-image-list>
     {
       images.map(({ src, alt }) => (

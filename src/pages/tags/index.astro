@@ -7,7 +7,7 @@ const tags = [...new Set(posts.flatMap(({ data }) => data.tags))].sort((a, b) =>
 ---
 
 <SiteLayout title="Tags" description="Browse posts by tag.">
-  <h1 class="page-title">Tags</h1>
+  <h1 class="visually-hidden">Tags</h1>
   {
     tags.length > 0 ? (
       <ul class="tag-list">
