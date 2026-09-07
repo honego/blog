@@ -54,7 +54,7 @@
 
 .prose pre {
   max-width: 100%;
-  padding: 0.875rem 1.25rem;
+  padding: 0.75rem 1rem;
   overflow-x: auto;
   background: var(--color-surface) !important;
   tab-size: 2;
