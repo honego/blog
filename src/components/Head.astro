@@ -1,6 +1,4 @@
 ---
-import interFontUrl from "../assets/fonts/InterVariable.woff2?url";
-import loraFontUrl from "../assets/fonts/LoraItalicVariable.woff2?url";
 import openGraphImageUrl from "../assets/open-graph/card.png?url&no-inline";
 import { ANALYTICS, SITE } from "../config";
 
@@ -52,8 +50,6 @@ const openGraphImage = new URL(openGraphImageUrl, Astro.site ?? Astro.url);
 
 <link rel="canonical" href={canonical} />
 <link rel="alternate" type="application/rss+xml" title={`${SITE.title} RSS`} href="/rss.xml" />
-<link rel="preload" href={interFontUrl} as="font" type="font/woff2" crossorigin="anonymous" />
-<link rel="preload" href={loraFontUrl} as="font" type="font/woff2" crossorigin="anonymous" />
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
 
 <meta property="og:type" content={type} />
