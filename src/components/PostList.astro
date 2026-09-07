@@ -63,15 +63,11 @@ const { entries } = Astro.props;
 
   .dot-leader {
     min-width: 1.5rem;
+    height: 1em;
     flex: 1;
-    overflow: hidden;
-    color: var(--color-border);
-    white-space: nowrap;
-  }
-
-  .dot-leader::after {
-    content: "······························································";
-    letter-spacing: 0.22rem;
+    align-self: center;
+    background: radial-gradient(circle, var(--color-border) 1px, transparent 1.1px) left center / 0.45rem 0.45rem
+      repeat-x;
   }
 
   .entry-date {

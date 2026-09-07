@@ -3,7 +3,13 @@ import { getCollection } from "astro:content";
 import SiteLayout from "@layouts/SiteLayout.astro";
 
 const posts = await getCollection("posts", ({ data }) => !data.draft);
-const tags = [...new Set(posts.flatMap(({ data }) => data.tags))].sort((a, b) => a.localeCompare(b));
+const tagCounts = posts
+  .flatMap(({ data }) => data.tags)
+  .reduce((counts, tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1), new Map<string, number>());
+const tags = [...tagCounts].sort(([a], [b]) => a.localeCompare(b));
+const counts = tags.map(([, count]) => count);
+const minCount = Math.min(...counts);
+const countRange = Math.max(Math.max(...counts) - minCount, 1);
 ---
 
 <SiteLayout title="Tags" description="Browse posts by tag.">
@@ -11,11 +17,19 @@ const tags = [...new Set(posts.flatMap(({ data }) => data.tags))].sort((a, b) =>
   {
     tags.length > 0 ? (
       <ul class="tag-list">
-        {tags.map((tag) => (
-          <li>
-            <a href={`/tags/${tag}`}>{tag}</a>
-          </li>
-        ))}
+        {tags.map(([tag, count]) => {
+          const weight = (count - minCount) / countRange;
+          return (
+            <li>
+              <a
+                href={`/tags/${tag}`}
+                style={`font-size: ${(1 + weight).toFixed(2)}rem; color: color-mix(in srgb, var(--color-text-faint), var(--color-text-strong) ${Math.round(weight * 100)}%)`}
+              >
+                {tag}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     ) : (
       <p>No tags yet.</p>
@@ -25,10 +39,23 @@ const tags = [...new Set(posts.flatMap(({ data }) => data.tags))].sort((a, b) =>
 
 <style>
   .tag-list {
-    display: grid;
-    gap: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .tag-list a {
+    display: block;
+    padding: 0.9375rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  .tag-list a:hover {
+    opacity: 0.65;
   }
 </style>
