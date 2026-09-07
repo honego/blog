@@ -1,7 +1,7 @@
 .site-shell {
   display: flex;
   flex-direction: column;
-  width: min(100%, 67.5rem);
+  width: min(100%, 64rem);
   margin-inline: auto;
 }
 
