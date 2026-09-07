@@ -20,8 +20,8 @@ export const ANALYTICS: { src: string; websiteId: string } | null = {
 
 // 顶部导航
 export const NAV_ITEMS = [
-  { href: "/", label: "Blog" },
-  { href: "/tags", label: "Tags" },
-  { href: "/images", label: "Images" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "首页" },
+  { href: "/tags", label: "标签" },
+  { href: "/images", label: "图集" },
+  { href: "/about", label: "关于" },
 ] as const;

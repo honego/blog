@@ -44,6 +44,7 @@
   flex: none;
   align-items: center;
   justify-content: flex-end;
+  margin-left: auto;
   gap: 0.9375rem;
 }
 
