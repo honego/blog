@@ -8,35 +8,41 @@ const isActive = (href: string) =>
   href === "/" ? pathname === href || isPost : pathname === href || pathname.startsWith(`${href}/`);
 ---
 
-<nav class="side-nav" aria-label="Primary navigation">
-  <ul>
-    {
-      NAV_ITEMS.map((item) => (
-        <li>
-          <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-            {item.label}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<header class="site-header">
+  <nav aria-label="Primary navigation">
+    <ul>
+      {
+        NAV_ITEMS.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
   <SiteActions />
-</nav>
+</header>
 
 <style>
-  .side-nav {
-    flex: 0 0 var(--side-nav-width);
-    margin-right: var(--content-gutter);
-    font-weight: 400;
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: -0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  nav {
+    min-width: 0;
   }
 
   ul {
-    position: sticky;
-    top: var(--page-padding);
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -44,8 +50,6 @@ const isActive = (href: string) =>
 
   a {
     display: block;
-    margin-inline: -0.5rem;
-    padding: 0 0.5rem;
     color: var(--color-text-faint);
     text-decoration: none;
     text-transform: lowercase;
@@ -64,24 +68,17 @@ const isActive = (href: string) =>
   a:focus-visible {
     border-radius: 0.15rem;
     outline: 1px dotted currentColor;
-    outline-offset: 1px;
+    outline-offset: 2px;
   }
 
   @media (max-width: 26.249rem) {
-    .side-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      width: 100%;
-      margin: 0 0 var(--content-gutter);
-      gap: 0.75rem;
+    .site-header {
+      align-items: flex-start;
+      margin-bottom: var(--content-gutter);
     }
 
     ul {
-      position: static;
-      flex-flow: row wrap;
-      justify-content: flex-end;
-      gap: 0.25rem 0.75rem;
+      column-gap: 0.75rem;
     }
   }
 </style>

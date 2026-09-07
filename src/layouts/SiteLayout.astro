@@ -1,18 +1,17 @@
 ---
 import Head from "@components/Head.astro";
-import SideNav from "@components/SideNav.astro";
+import SiteHeader from "@components/SiteHeader.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 import "../styles/global.css";
 
 type Props = {
   title?: string;
   description?: string;
-  wide?: boolean;
   type?: "website" | "article";
   publishedTime?: Date;
 };
 
-const { title, description, wide = false, type, publishedTime } = Astro.props;
+const { title, description, type, publishedTime } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,8 +21,8 @@ const { title, description, wide = false, type, publishedTime } = Astro.props;
   </head>
   <body>
     <div class="top-fade" aria-hidden="true"></div>
-    <div class:list={["site-shell", { "site-shell--wide": wide }]}>
-      <SideNav />
+    <div class="site-shell">
+      <SiteHeader />
       <main id="main-content" class="content-panel">
         <div class="page-content">
           <slot />

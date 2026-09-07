@@ -1,34 +1,13 @@
 .site-shell {
   display: flex;
-  align-items: stretch;
-  width: min(100%, 56rem);
-}
-
-.site-shell--wide {
-  width: calc(100% - 4rem - var(--content-gutter));
+  flex-direction: column;
+  width: min(100%, 86rem);
+  margin-inline: auto;
 }
 
 .content-panel {
-  position: relative;
   width: 100%;
-  max-width: var(--content-width);
   min-width: 0;
-}
-
-.site-shell--wide .content-panel {
-  max-width: none;
-}
-
-.content-panel::before {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 1px;
-  background: var(--color-border);
-  content: "";
-}
-
-.page-content {
-  padding-left: var(--content-gutter);
 }
 
 .top-fade {
@@ -61,14 +40,10 @@
 }
 
 .site-actions {
-  position: fixed;
-  z-index: 20;
-  bottom: max(calc(var(--page-padding) - 0.5rem), env(safe-area-inset-bottom));
-  left: var(--page-padding);
   display: inline-flex;
+  flex: none;
   align-items: center;
   justify-content: flex-end;
-  width: var(--side-nav-width);
   gap: 0.9375rem;
 }
 
@@ -169,7 +144,7 @@
 
 .site-actions .icon-button[data-tooltip]::after {
   position: absolute;
-  bottom: calc(100% + 0.5rem);
+  top: calc(100% + 0.5rem);
   left: 50%;
   z-index: 5;
   padding: 0.375rem 0.625rem;
@@ -190,11 +165,11 @@
 
 .site-actions .icon-button[data-tooltip]::before {
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   z-index: 4;
   border: 0.375rem solid transparent;
-  border-top-color: var(--color-surface);
+  border-bottom-color: var(--color-surface);
   content: "";
   opacity: 0;
   pointer-events: none;
@@ -208,6 +183,16 @@
 .site-actions .icon-button[data-tooltip]:is(:hover, :focus-visible)::before {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+.site-actions .icon-button:last-child[data-tooltip]::after {
+  right: 0;
+  left: auto;
+  transform: translateY(0.25rem);
+}
+
+.site-actions .icon-button:last-child[data-tooltip]:is(:hover, :focus-visible)::after {
+  transform: translateY(0);
 }
 
 .page-title {
@@ -240,26 +225,7 @@
 
 @media (max-width: 26.249rem) {
   .site-shell {
-    flex-direction: column;
-  }
-
-  .site-shell--wide {
     width: 100%;
-  }
-
-  .content-panel::before {
-    inset: 0 0 auto;
-    width: 100%;
-    height: 1px;
-  }
-
-  .page-content {
-    padding: var(--content-gutter) 0 0;
-  }
-
-  .site-actions {
-    position: static;
-    width: auto;
   }
 
   .site-actions .icon-button {

@@ -18,7 +18,7 @@ export const ANALYTICS: { src: string; websiteId: string } | null = {
   websiteId: "b630bd25-ae61-4321-97bb-017bbbf1eb35",
 };
 
-// 左侧导航
+// 顶部导航
 export const NAV_ITEMS = [
   { href: "/", label: "Blog" },
   { href: "/tags", label: "Tags" },
