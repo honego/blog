@@ -1,11 +1,30 @@
-.agents
-.codex
-.idea
-.vscode
+# editors and ides
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
 
-# Ignore build output
-.astro
-.pnpm-store
-.wrangler
-dist
-node_modules
+# agents
+.agents/
+.codex/
+
+# system files
+.DS_Store
+
+# build output
+.astro/
+.pnpm-store/
+.wrangler/
+dist/
+
+# dependencies
+node_modules/
+
+# logs
+*.log*
+
+# environment variables
+.env
+.env.production
