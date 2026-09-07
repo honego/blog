@@ -13,7 +13,6 @@ const { title, description, date, updated } = Astro.props;
 ---
 
 <SiteLayout title={title} description={description} type="article" publishedTime={date}>
-  <a class="back-link" href="/">← Blog</a>
   <header class="post-header">
     <h1>{title}</h1>
     <div class="post-date">
@@ -34,18 +33,6 @@ const { title, description, date, updated } = Astro.props;
 </SiteLayout>
 
 <style>
-  .back-link {
-    display: inline-block;
-    margin-bottom: 2.5rem;
-    color: var(--color-text-faint);
-    text-decoration: none;
-  }
-
-  .back-link:hover,
-  .back-link:focus-visible {
-    color: var(--color-text-strong);
-  }
-
   .post-header {
     max-width: calc(var(--content-width) - var(--content-gutter));
     margin-bottom: 2.75rem;

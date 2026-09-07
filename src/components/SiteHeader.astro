@@ -27,7 +27,7 @@ import { NAV_ITEMS, SITE } from "../config";
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    margin-top: -0.75rem;
+    margin-top: calc(1rem - var(--page-padding));
     margin-bottom: 3rem;
   }
 
@@ -115,6 +115,12 @@ import { NAV_ITEMS, SITE } from "../config";
   @media (max-width: 26.249rem) {
     .site-header {
       margin-bottom: var(--content-gutter);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .site-header {
+      margin-top: calc(2rem - var(--page-padding));
     }
   }
 </style>
