@@ -1,5 +1,4 @@
 ---
-import openGraphImageUrl from "../assets/open-graph/card.png?url&no-inline";
 import { ANALYTICS, SITE } from "../config";
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
 const { title = SITE.title, description = SITE.description, type = "website", publishedTime } = Astro.props;
 const pageTitle = title === SITE.title ? title : `${title} — ${SITE.title}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
-const openGraphImage = new URL(openGraphImageUrl, Astro.site ?? Astro.url);
+const openGraphImage = new URL("/open-graph.png", Astro.site ?? Astro.url);
 ---
 
 <meta charset="utf-8" />
