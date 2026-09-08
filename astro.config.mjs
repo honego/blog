@@ -2,9 +2,10 @@ import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
 import imgAttr from "satteri-imgattr";
+import { SITE } from "./src/config.ts";
 
 export default defineConfig({
-  site: "https://blog.honeok.com",
+  site: SITE.url,
   trailingSlash: "never",
   output: "static",
   build: {

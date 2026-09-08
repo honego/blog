@@ -28,7 +28,6 @@ const { entries } = Astro.props;
 <style>
   .entry-list {
     display: grid;
-    gap: 0.12rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -39,7 +38,7 @@ const { entries } = Astro.props;
     align-items: baseline;
     gap: 0.35rem;
     margin-inline: -0.5rem;
-    padding: 0.08rem 0.5rem;
+    padding: 0.1875rem 0.5rem;
     color: inherit;
     font-weight: 540;
     text-decoration: none;
@@ -59,6 +58,7 @@ const { entries } = Astro.props;
 
   .entry-title {
     min-width: 0;
+    font-size: 1rem;
   }
 
   .dot-leader {
@@ -71,6 +71,7 @@ const { entries } = Astro.props;
   }
 
   .entry-date {
+    flex: none;
     color: var(--color-text-faint);
     font-variant-numeric: tabular-nums;
     font-weight: 400;
@@ -89,7 +90,6 @@ const { entries } = Astro.props;
     .entry-date {
       margin-left: auto;
       padding-left: 0.75rem;
-      font-size: 0.875rem;
     }
   }
 </style>

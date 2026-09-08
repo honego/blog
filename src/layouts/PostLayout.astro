@@ -35,21 +35,23 @@ const { title, description, date, updated } = Astro.props;
 <style>
   .post-header {
     max-width: calc(var(--content-width) - var(--content-gutter));
-    margin-bottom: 2.75rem;
+    margin-bottom: 2.5rem;
   }
 
   h1 {
     margin: 0;
     color: var(--color-text-strong);
-    font-size: clamp(1.6rem, 5vw, 2.25rem);
-    font-weight: 620;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 2rem;
   }
 
   .post-date {
-    margin-top: 0.55rem;
+    margin-top: 0.25rem;
     color: var(--color-text-faint);
     font-size: 0.875rem;
     font-variant-numeric: tabular-nums;
+    line-height: 1.25rem;
   }
 </style>
 

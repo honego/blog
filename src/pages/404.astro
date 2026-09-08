@@ -2,11 +2,12 @@
 // Adapted from: https://github.com/honeok/config/blob/main/webserver/html/404.html
 import Head from "@components/Head.astro";
 import SiteFooter from "@components/SiteFooter.astro";
+import { SITE } from "../config";
 import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={SITE.lang}>
   <head>
     <Head title="404 Not Found" description="The requested page could not be found." />
   </head>
