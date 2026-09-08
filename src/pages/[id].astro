@@ -17,19 +17,22 @@ export async function getStaticPaths() {
     postIds.set(post.data.id, post.id);
   }
 
-  return posts
+  const publishedPosts = posts
     .filter(({ data }) => !data.draft)
-    .map((post) => ({
-      params: { id: String(post.data.id) },
-      props: { post },
-    }));
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  return publishedPosts.map((post, index) => ({
+    params: { id: String(post.data.id) },
+    props: { post, nextPost: publishedPosts[index + 1] },
+  }));
 }
 
 type Props = {
   post: CollectionEntry<"posts">;
+  nextPost?: CollectionEntry<"posts">;
 };
 
-const { post } = Astro.props;
+const { post, nextPost } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 ---
 
@@ -40,6 +43,7 @@ const { Content, remarkPluginFrontmatter } = await render(post);
   updated={post.data.updated}
   readingTime={remarkPluginFrontmatter.readingTime}
   tags={post.data.tags}
+  {nextPost}
 >
   <Content />
 </PostLayout>
