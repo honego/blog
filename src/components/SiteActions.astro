@@ -3,7 +3,6 @@ import Moon from "@lucide/astro/icons/moon";
 import Rss from "@lucide/astro/icons/rss";
 import Search from "@lucide/astro/icons/search";
 import Sun from "@lucide/astro/icons/sun";
-import SunMoon from "@lucide/astro/icons/sun-moon";
 ---
 
 <div class="site-actions">
@@ -25,11 +24,10 @@ import SunMoon from "@lucide/astro/icons/sun-moon";
     id="theme-toggle"
     class="icon-button theme-toggle"
     type="button"
-    aria-label="跟随系统"
-    aria-pressed="mixed"
-    data-tooltip="跟随系统"
+    aria-label="浅色模式"
+    aria-pressed="false"
+    data-tooltip="浅色模式"
   >
-    <SunMoon class="icon icon-system" />
     <Moon class="icon icon-moon" />
     <Sun class="icon icon-sun" />
   </button>

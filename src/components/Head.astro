@@ -20,25 +20,16 @@ const openGraphImage = new URL("/open-graph.png", Astro.site ?? Astro.url);
 <script is:inline>
   (() => {
     const themeKey = "theme";
-    const modeKey = "theme-mode";
-    let storedMode = null;
-    let legacyTheme = null;
+    let storedTheme = null;
 
     try {
-      storedMode = localStorage.getItem(modeKey);
-      legacyTheme = localStorage.getItem(themeKey);
+      storedTheme = localStorage.getItem(themeKey);
     } catch {}
 
     const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    const mode = ["system", "light", "dark"].includes(storedMode)
-      ? storedMode
-      : ["light", "dark"].includes(legacyTheme)
-        ? legacyTheme
-        : "system";
-    const theme = mode === "system" ? (prefersDark ? "dark" : "light") : mode;
+    const theme = ["light", "dark"].includes(storedTheme) ? storedTheme : prefersDark ? "dark" : "light";
 
     document.documentElement.dataset.theme = theme;
-    document.documentElement.dataset.themeMode = mode;
     document
       .querySelector('meta[name="theme-color"]')
       ?.setAttribute("content", theme === "dark" ? "#1a1a1a" : "#fcfcfc");

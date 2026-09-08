@@ -132,20 +132,8 @@ body .medium-zoom-image {
   transform: rotate(90deg) scale(0.75);
 }
 
-:root[data-theme-mode="system"] .theme-toggle .icon-system {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
-:root[data-theme-mode="system"] .theme-toggle .icon-moon,
-:root[data-theme-mode="system"] .theme-toggle .icon-sun {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.75);
-}
-
-:root:not([data-theme="dark"]):not([data-theme-mode="system"]) .theme-toggle:is(:hover, :focus-visible) .icon-sun,
-:root[data-theme="dark"]:not([data-theme-mode="system"]) .theme-toggle:is(:hover, :focus-visible) .icon-moon,
-:root[data-theme-mode="system"] .theme-toggle:is(:hover, :focus-visible) .icon-system {
+:root:not([data-theme="dark"]) .theme-toggle:is(:hover, :focus-visible) .icon-sun,
+:root[data-theme="dark"] .theme-toggle:is(:hover, :focus-visible) .icon-moon {
   transform: rotate(20deg) scale(1.06);
 }
 
