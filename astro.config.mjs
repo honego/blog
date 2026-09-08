@@ -1,8 +1,8 @@
 import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
-import imgAttr from "satteri-imgattr";
 import { SITE } from "./src/config.ts";
+import htmlImage from "./src/plugins/html-image.mjs";
 import video from "./src/plugins/video.mjs";
 
 export default defineConfig({
@@ -25,9 +25,9 @@ export default defineConfig({
   ],
   markdown: {
     processor: satteri({
-      features: { directive: true },
+      features: { directive: true, rawHtml: true },
       mdastPlugins: [video],
-      hastPlugins: [imgAttr()],
+      hastPlugins: [htmlImage],
     }),
     shikiConfig: {
       themes: {

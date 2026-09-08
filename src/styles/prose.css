@@ -136,6 +136,19 @@
   margin-block: 2rem;
 }
 
+.post-content p:has(> img + img) {
+  display: flex;
+  align-items: flex-start;
+  gap: 2%;
+}
+
+.post-content p:has(> img + img) > img {
+  flex: 1 1 0;
+  width: 0 !important;
+  min-width: 0;
+  margin-block: 0;
+}
+
 .video-player {
   margin-block: 2rem;
 }

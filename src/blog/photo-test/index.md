@@ -29,13 +29,15 @@ Text before the image ![Inline Enpi](./img/enpi.jpg) text after the image.
 
 ## Image width
 
-![Enpi at 90% width](./img/enpi.jpg)(style: "width: 90%")
+<img src="./img/enpi.jpg" width="90%" alt="Enpi at 90% width">
 
-![Enpi at 640 by 400](./img/enpi.jpg)(width: 640, height: 400)
+<img src="./img/enpi.jpg" width="640" height="400" alt="Enpi at 640 by 400">
 
 ## Two images in one row
 
-![Enpi](./img/enpi.jpg)(style: "display: inline-block; width: 49%; margin-block: 2rem; vertical-align: top;")
-![Mountain road](./img/007.png)(style: "display: inline-block; width: 49%; margin-block: 2rem; vertical-align: top;")
+<p>
+  <img src="./img/enpi.jpg" width="49%" alt="Enpi">
+  <img src="./img/007.png" width="49%" alt="Mountain road">
+</p>
 
 [enpi]: ./img/enpi.jpg "Enpi reference"
