@@ -94,7 +94,8 @@ body .medium-zoom-image {
   transition: transform 250ms ease;
 }
 
-.rss-link {
+.rss-link,
+.search-button {
   --icon-size: 1rem;
 }
 

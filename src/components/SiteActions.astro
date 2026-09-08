@@ -1,11 +1,23 @@
 ---
 import Moon from "@lucide/astro/icons/moon";
 import Rss from "@lucide/astro/icons/rss";
+import Search from "@lucide/astro/icons/search";
 import Sun from "@lucide/astro/icons/sun";
 import SunMoon from "@lucide/astro/icons/sun-moon";
 ---
 
 <div class="site-actions">
+  <button
+    class="icon-button search-button"
+    type="button"
+    aria-label="搜索文章"
+    aria-haspopup="dialog"
+    aria-controls="search-dialog"
+    data-search-trigger
+    data-tooltip="搜索文章"
+  >
+    <Search class="icon" />
+  </button>
   <a class="icon-button rss-link" href="/rss.xml" aria-label="RSS 订阅" data-tooltip="RSS 订阅">
     <Rss class="icon" />
   </a>

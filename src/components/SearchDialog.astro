@@ -1,0 +1,152 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const items = posts.map(({ data }) => ({
+  title: data.title,
+  href: `/${data.id}.html`,
+}));
+const searchData = JSON.stringify(items).replaceAll("<", "\\u003c");
+---
+
+<dialog id="search-dialog" class="search-dialog" data-search-dialog aria-label="搜索文章">
+  <form class="search-panel" data-search-form>
+    <input type="search" data-search-input placeholder="搜索文章" autocomplete="off" aria-label="搜索文章" />
+    <div class="search-results" data-search-results aria-live="polite" hidden></div>
+  </form>
+</dialog>
+
+<script is:inline type="application/json" id="search-data" set:html={searchData} />
+
+<script>
+  type SearchItem = { title: string; href: string };
+
+  const dialog = document.querySelector<HTMLDialogElement>("[data-search-dialog]");
+  const form = dialog?.querySelector<HTMLFormElement>("[data-search-form]");
+  const input = dialog?.querySelector<HTMLInputElement>("[data-search-input]");
+  const results = dialog?.querySelector<HTMLElement>("[data-search-results]");
+  const data = document.getElementById("search-data")?.textContent ?? "[]";
+  const items: SearchItem[] = JSON.parse(data);
+
+  const render = () => {
+    if (!input || !results) return;
+    const terms = input.value.toLocaleLowerCase("zh-CN").trim().split(/\s+/).filter(Boolean);
+
+    results.replaceChildren();
+    results.hidden = terms.length === 0;
+    if (results.hidden) return;
+
+    const matches = items
+      .filter(({ title }) => {
+        const normalizedTitle = title.toLocaleLowerCase("zh-CN");
+        return terms.every((term) => normalizedTitle.includes(term));
+      })
+      .slice(0, 8);
+    const content = document.createDocumentFragment();
+
+    for (const { title, href } of matches) {
+      const link = document.createElement("a");
+      link.className = "search-result";
+      link.href = href;
+      link.textContent = title;
+      content.append(link);
+    }
+
+    if (!matches.length) {
+      const empty = document.createElement("p");
+      empty.className = "search-empty";
+      empty.textContent = "没有匹配的文章";
+      content.append(empty);
+    }
+
+    results.append(content);
+  };
+
+  document.querySelector("[data-search-trigger]")?.addEventListener("click", () => {
+    dialog?.showModal();
+    requestAnimationFrame(() => input?.focus());
+  });
+  input?.addEventListener("input", render);
+  input?.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    event.preventDefault();
+    dialog?.close();
+  });
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    results?.querySelector<HTMLAnchorElement>("a")?.click();
+  });
+  dialog?.addEventListener("click", ({ target }) => target === dialog && dialog.close());
+  dialog?.addEventListener("close", () => {
+    if (input) input.value = "";
+    render();
+  });
+</script>
+
+<style>
+  .search-dialog {
+    width: min(32rem, calc(100% - 2rem));
+    max-width: none;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-background);
+    color: var(--color-text);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 18%);
+    overflow: hidden;
+  }
+
+  .search-dialog::backdrop {
+    background: rgb(0 0 0 / 28%);
+    backdrop-filter: blur(4px);
+  }
+
+  .search-panel {
+    margin: 0;
+  }
+
+  input {
+    width: 100%;
+    padding: 1rem 1.125rem;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text-strong);
+    font: inherit;
+  }
+
+  input::placeholder {
+    color: var(--color-text-faint);
+  }
+
+  .search-results {
+    max-height: min(22rem, 50vh);
+    padding: 0.375rem;
+    border-top: 1px solid var(--color-border);
+    overflow-y: auto;
+  }
+
+  .search-results :global(.search-result) {
+    display: block;
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.375rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .search-results :global(.search-result:hover),
+  .search-results :global(.search-result:focus-visible) {
+    background: var(--color-surface);
+    color: var(--color-text-strong);
+    outline: 0;
+  }
+
+  .search-results :global(.search-empty) {
+    margin: 0;
+    padding: 0.75rem;
+    color: var(--color-text-faint);
+    text-align: center;
+  }
+</style>

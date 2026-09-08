@@ -1,5 +1,6 @@
 ---
 import Head from "@components/Head.astro";
+import SearchDialog from "@components/SearchDialog.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 import { SITE } from "../config";
@@ -31,6 +32,7 @@ const { title, description, type, publishedTime } = Astro.props;
       </main>
     </div>
     <SiteFooter />
+    <SearchDialog />
   </body>
 </html>
 
