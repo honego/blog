@@ -1,14 +1,19 @@
 ---
 import { getCollection } from "astro:content";
+import Pagination from "@components/Pagination.astro";
 import PostList from "@components/PostList.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import { POSTS_PER_PAGE } from "../config";
 
 const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+const lastPage = Math.ceil(posts.length / POSTS_PER_PAGE);
+const entries = posts.slice(0, POSTS_PER_PAGE);
 ---
 
 <SiteLayout>
   <h1 class="visually-hidden">Blog</h1>
-  {posts.length > 0 ? <PostList entries={posts} /> : <p>No published posts yet.</p>}
+  {entries.length > 0 ? <PostList {entries} /> : <p>No published posts yet.</p>}
+  {lastPage > 1 && <Pagination currentPage={1} {lastPage} next="/page/2" />}
 </SiteLayout>

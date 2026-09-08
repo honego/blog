@@ -1,0 +1,43 @@
+---
+type Props = {
+  currentPage: number;
+  lastPage: number;
+  prev?: string;
+  next?: string;
+};
+
+const { currentPage, lastPage, prev, next } = Astro.props;
+---
+
+<nav class="pagination" aria-label="分页导航">
+  <span>{currentPage} / {lastPage}</span>
+  <div>
+    {prev && <a href={prev}>← 上一页</a>}
+    {next && <a href={next}>下一页 →</a>}
+  </div>
+</nav>
+
+<style>
+  .pagination,
+  .pagination div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pagination {
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    color: var(--color-text-faint);
+    font-size: 0.875rem;
+  }
+
+  .pagination a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pagination a:hover {
+    color: var(--color-text-strong);
+  }
+</style>
