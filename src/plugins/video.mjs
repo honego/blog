@@ -29,7 +29,11 @@ export default {
       const posterAttribute = poster && isVideoUrl(poster) ? ` poster="${escapeAttribute(poster)}"` : "";
 
       return {
-        raw: `<div class="video-player${size.className}"${size.style}><video src="${escapeAttribute(src)}"${posterAttribute} controls preload="metadata"></video></div>`,
+        raw: [
+          `<div class="video-player${size.className}"${size.style}>`,
+          `<video src="${escapeAttribute(src)}"${posterAttribute}`,
+          ` controls preload="metadata"></video></div>`,
+        ].join(""),
         mdxExpressions: false,
       };
     }
@@ -43,7 +47,12 @@ export default {
     const title = escapeAttribute(attributes.title ?? `${node.name} video`);
 
     return {
-      raw: `<div class="video-player video-embed${size.className}"${size.style}><iframe src="${escapeAttribute(src)}" title="${title}" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`,
+      raw: [
+        `<div class="video-player video-embed${size.className}"${size.style}>`,
+        `<iframe src="${escapeAttribute(src)}" title="${title}" loading="lazy"`,
+        ` allow="autoplay; encrypted-media; fullscreen; picture-in-picture"`,
+        ` allowfullscreen></iframe></div>`,
+      ].join(""),
       mdxExpressions: false,
     };
   },
