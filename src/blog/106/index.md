@@ -4,7 +4,7 @@ title: Gemini 聊天报错解决方法，新谷歌号提示出了点问题解决
 description: A practical fix for Gemini errors on newly registered Google accounts, covering direct Gems access, age verification, and country or region settings.
 date: 2025-12-19
 tags:
-  - 碎片分享
+  - 分享
 draft: false
 ---
 
