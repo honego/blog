@@ -136,6 +136,10 @@
   margin-block: 2rem;
 }
 
+.post-content img {
+  margin-inline: auto;
+}
+
 .post-content p:has(> img + img) {
   display: flex;
   align-items: flex-start;
