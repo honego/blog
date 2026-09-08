@@ -7,7 +7,13 @@ const filingHref = FILING?.href ?? "";
 ---
 
 <footer class:list={["site-footer", { "site-footer--with-filing": FILING }]}>
-  <span>© {year} {SITE.author}. All rights reserved.</span>
+  <span>
+    © {year}{" "}{SITE.author} · <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0"
+      target="_blank"
+      rel="license noopener">CC BY-NC-SA 4.0</a
+    >
+  </span>
   {
     FILING && (
       <span>
