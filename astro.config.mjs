@@ -3,6 +3,7 @@ import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
 import imgAttr from "satteri-imgattr";
 import { SITE } from "./src/config.ts";
+import video from "./src/plugins/video.mjs";
 
 export default defineConfig({
   site: SITE.url,
@@ -24,6 +25,8 @@ export default defineConfig({
   ],
   markdown: {
     processor: satteri({
+      features: { directive: true },
+      mdastPlugins: [video],
       hastPlugins: [imgAttr()],
     }),
     shikiConfig: {
