@@ -3,6 +3,7 @@ import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
 import { SITE } from "./src/config.ts";
 import htmlImage from "./src/plugins/html-image.mjs";
+import readingTime from "./src/plugins/reading-time.mjs";
 import video from "./src/plugins/video.mjs";
 
 export default defineConfig({
@@ -26,7 +27,7 @@ export default defineConfig({
   markdown: {
     processor: satteri({
       features: { directive: true, rawHtml: true },
-      mdastPlugins: [video],
+      mdastPlugins: [video, readingTime],
       hastPlugins: [htmlImage],
     }),
     shikiConfig: {

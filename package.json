@@ -15,6 +15,8 @@
     "@lucide/astro": "^1.28.0",
     "astro": "^7.3.1",
     "medium-zoom": "^1.1.0",
+    "reading-time": "^1.5.0",
+    "satteri": "^0.10.5",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
