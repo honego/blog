@@ -18,7 +18,7 @@ draft: false
 
 很高兴，我回来了。
 
-<img src="https://img.meituan.net/csc/3081a82b3084c26dae6c50f4e03fb5293955780.jpg" width="60%">
+<img src="https://img.meituan.net/csc/3081a82b3084c26dae6c50f4e03fb5293955780.jpg" style="width:60%">
 
 # 脱口秀的力量
 
@@ -30,4 +30,4 @@ draft: false
 
 这一次，我终于能重新坐在观众席上，安静地听完一整场演出。
 
-<img src="https://img.meituan.net/portalweb/c6b23cb81275badcd2e31e5cc5b9c46d1561270.jpg" width="60%">
+<img src="https://img.meituan.net/portalweb/c6b23cb81275badcd2e31e5cc5b9c46d1561270.jpg" style="width:60%">
