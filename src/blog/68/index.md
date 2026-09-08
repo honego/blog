@@ -1,9 +1,12 @@
 ---
 id: 68
 title: 迥异尘嚣 内江一瞬
-description: A minimal Astro writing setup inspired by two very different personal sites.
+description: A rain-soaked journey through Neijiang's old quarter, tracing riverside memories and finding a moment of quiet beyond the noise.
 date: 2025-11-06
-tags: []
+tags:
+  - 随笔
+  - 旅行
+draft: false
 ---
 
 不知何时起，我便失眠成习，惯于晚睡，便时常骑车自城南驰至城北，坐于北门老街，点一根烟，吞云吐雾间寻一丝宁静。
