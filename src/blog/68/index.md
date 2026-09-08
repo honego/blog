@@ -1,7 +1,7 @@
 ---
 id: 68
 title: 迥异尘嚣 内江一瞬
-description: A rain-soaked journey through Neijiang's old quarter, tracing riverside memories and finding a moment of quiet beyond the noise.
+description: 穿行内江老城，在喧嚣之外寻得片刻宁静
 date: 2025-11-06
 tags:
   - 随笔

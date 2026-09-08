@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import Head from "@components/Head.astro";
 import SearchDialog from "@components/SearchDialog.astro";
 import SiteHeader from "@components/SiteHeader.astro";
@@ -20,6 +21,13 @@ const { title, description, type, publishedTime } = Astro.props;
 <html lang={SITE.lang}>
   <head>
     <Head title={title} description={description} type={type} publishedTime={publishedTime} />
+    <Font cssVariable="--font-serif" preload={[{ subset: "latin" }]} />
+    <style is:inline>
+      .site-shell {
+        width: min(100%, 50rem);
+        margin-inline: auto;
+      }
+    </style>
   </head>
   <body>
     <div class="top-fade" aria-hidden="true"></div>

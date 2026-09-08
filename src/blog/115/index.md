@@ -1,7 +1,7 @@
 ---
 id: 115
 title: 写在2025年末
-description: A year-end reflection on returning to blogging, resisting inertia, and rediscovering how stand-up comedy can be sharp without becoming divisive.
+description: 一场沉沦的结束和新的沉沦的开始
 date: 2025-12-31
 tags:
   - 随笔

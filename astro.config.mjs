@@ -1,6 +1,6 @@
 import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import { SITE } from "./src/config.ts";
 import htmlImage from "./src/plugins/html-image.mjs";
 import readingTime from "./src/plugins/reading-time.mjs";
@@ -10,6 +10,18 @@ export default defineConfig({
   site: SITE.url,
   trailingSlash: "never",
   output: "static",
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Noto Serif SC",
+      cssVariable: "--font-serif",
+      weights: ["200 900"],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["ui-serif", "Georgia", "Times New Roman", "serif"],
+      display: "swap",
+    },
+  ],
   build: {
     format: "preserve",
   },

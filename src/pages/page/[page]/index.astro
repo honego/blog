@@ -5,14 +5,13 @@ import { getCollection } from "astro:content";
 import Pagination from "@components/Pagination.astro";
 import PostList from "@components/PostList.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
-import { POSTS_PER_PAGE } from "../../../config";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
   );
 
-  return paginate(posts, { pageSize: POSTS_PER_PAGE }).filter(({ props }) => props.page.currentPage > 1);
+  return paginate(posts, { pageSize: 10 }).filter(({ props }) => props.page.currentPage > 1);
 }) satisfies GetStaticPaths;
 
 type Props = { page: Page<CollectionEntry<"posts">> };
