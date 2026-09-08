@@ -13,6 +13,7 @@
   --color-selection: rgba(149, 165, 172, 0.25);
   --color-selection-text: #32445d;
   --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --pico-font-size: 100%;
   color-scheme: light;
   font-family: var(--font-serif);
   font-synthesis: none;

@@ -1,5 +1,6 @@
 # editors and ides
 .idea/
+.devcontainer/
 .vscode/
 *.code-workspace
 *.swp

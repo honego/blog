@@ -20,7 +20,7 @@ const copiedIcon = `
   </svg>
 `;
 
-document.querySelectorAll<HTMLPreElement>(".prose pre").forEach((pre) => {
+document.querySelectorAll<HTMLPreElement>(".post-content pre").forEach((pre) => {
   const code = pre.querySelector("code");
   if (!code) return;
 
