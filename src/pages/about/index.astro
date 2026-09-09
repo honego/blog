@@ -1,15 +1,12 @@
 ---
 import SiteLayout from "@layouts/SiteLayout.astro";
 import { SITE } from "../../config";
+import { Content } from "../../content/about/index.md";
 ---
 
 <SiteLayout title="About">
   <h1 class="visually-hidden">{SITE.author}</h1>
   <section class="page-section prose prose-neutral max-w-none post-content dark:prose-invert">
-    <p>I'm honeok, a cloud-native believer. I'm always trying new things.</p>
-    <p>Flowing water does not strive to be first; it strives to flow without end.</p>
-    <p>
-      You can find me on <a href={SITE.github}>GitHub</a>.
-    </p>
+    <Content />
   </section>
 </SiteLayout>
