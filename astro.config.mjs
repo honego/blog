@@ -41,7 +41,14 @@ export default defineConfig({
   ],
   markdown: {
     processor: satteri({
-      features: { directive: true },
+      features: {
+        directive: true,
+        smartPunctuation: {
+          quotes: false,
+          dashes: true,
+          ellipses: true,
+        },
+      },
       mdastPlugins: [video, readingTime],
     }),
     shikiConfig: {
