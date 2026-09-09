@@ -19,3 +19,5 @@ draft: false
 这是正文普通字体，用于对比
 
 `pnpm install`
+
+> 即使安装过程出错，也能连接 SSH 手动救砖
