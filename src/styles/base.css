@@ -12,6 +12,8 @@
   --color-border: rgba(110, 119, 130, 0.27);
   --color-selection: rgba(149, 165, 172, 0.25);
   --color-selection-text: #32445d;
+  --color-code-bg: #ececec; /* Inline code background */
+  --color-code-fg: #be3b6c; /* Inline code foreground */
   --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   color-scheme: light;
   font-family: var(--font-serif);
@@ -28,6 +30,8 @@
   --color-border: rgba(163, 163, 163, 0.27);
   --color-selection: rgba(163, 163, 163, 0.25);
   --color-selection-text: #e5e5e5;
+  --color-code-bg: #2a2724;
+  --color-code-fg: #e8a8a0;
   color-scheme: dark;
 }
 

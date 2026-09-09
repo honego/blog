@@ -17,3 +17,5 @@ draft: false
 #### H4 基础代码块
 
 这是正文普通字体，用于对比
+
+`pnpm install`

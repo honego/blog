@@ -19,6 +19,24 @@
   font-size: 1.125rem;
 }
 
+/* Inline code styling; fenced code remains owned by Astro Shiki. */
+.post-content :where(code):not(:where(pre code)) {
+  padding: 0.125rem 0.25rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: var(--color-code-bg);
+  color: var(--color-code-fg);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.post-content :where(code):not(:where(pre code))::before,
+.post-content :where(code):not(:where(pre code))::after {
+  content: none;
+}
+
 /* Code block copy interaction */
 .post-content .copy-code-wrapper {
   position: relative;
