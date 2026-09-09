@@ -103,15 +103,6 @@
   margin-block: 0;
 }
 
-/* Responsive embeds for iframe-based media such as Bilibili and YouTube. */
-.prose.post-content iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  border: 0;
-}
-
 /* Directive-generated video players */
 .video-player {
   margin-block: 2rem;
