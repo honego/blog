@@ -21,3 +21,5 @@ draft: false
 `pnpm install`
 
 > 即使安装过程出错，也能连接 SSH 手动救砖
+
+这是一个 [GitHub 链接](https://github.com)

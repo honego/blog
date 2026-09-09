@@ -19,6 +19,12 @@
   font-size: 1.125rem;
 }
 
+/* Article links */
+.post-content :where(a) {
+  color: inherit;
+  font-weight: normal;
+}
+
 /* Inline code styling; fenced code remains owned by Astro Shiki. */
 .post-content :where(code):not(:where(pre code)) {
   padding: 0.125rem 0.25rem;
