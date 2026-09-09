@@ -1,21 +1,21 @@
 /* Article body type scale; Tailwind Typography continues to own all other prose styles. */
-article.prose.post-content {
+.prose.post-content {
   font-size: 1rem;
 }
 
-article.prose.post-content :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+.prose.post-content :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-size: 1.75rem;
 }
 
-article.prose.post-content :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+.prose.post-content :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-size: 1.5rem;
 }
 
-article.prose.post-content :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+.prose.post-content :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-size: 1.25rem;
 }
 
-article.prose.post-content :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+.prose.post-content :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-size: 1.125rem;
 }
 
