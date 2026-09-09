@@ -37,6 +37,18 @@
   content: none;
 }
 
+/* Blockquote: keep the quote bar without generated quotation marks. */
+.post-content :where(blockquote) {
+  margin-inline: 0;
+  border-inline-start-style: solid;
+  font-style: normal;
+}
+
+.post-content :where(blockquote p:first-of-type)::before,
+.post-content :where(blockquote p:last-of-type)::after {
+  content: none;
+}
+
 /* Code block copy interaction */
 .post-content .copy-code-wrapper {
   position: relative;
