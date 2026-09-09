@@ -1,4 +1,11 @@
-@import "@picocss/pico/css/pico.classless.conditional.grey.min.css";
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 @import "./base.css";
 @import "./layout.css";
 @import "./prose.css";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

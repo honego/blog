@@ -13,7 +13,6 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@lucide/astro": "^1.28.0",
-    "@picocss/pico": "^2.1.1",
     "astro": "^7.3.1",
     "medium-zoom": "^1.1.0",
     "reading-time": "^1.5.0",
@@ -22,6 +21,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@11.25.0"
