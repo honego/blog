@@ -23,10 +23,10 @@ prose-content .code-block {
 
 prose-content .code-block > pre {
   margin: 0;
-  padding-block: 1rem;
+  padding-block: 0.75rem;
   padding-inline: 1rem;
   font-size: 0.8rem;
-  line-height: 1.4;
+  line-height: 1.12rem;
 }
 
 prose-content .code-block > button {
