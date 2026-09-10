@@ -16,7 +16,8 @@ const {
   publishedTime,
   modifiedTime,
 } = Astro.props;
-const pageTitle = title === SITE.title ? `${title} | ${SITE.description}` : `${title} | ${SITE.title}`;
+const isHome = Astro.url.pathname === "/";
+const pageTitle = isHome ? SITE.title : `${title} | ${SITE.title}`;
 const pathname = Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/+$/, "");
 const canonical = new URL(pathname, Astro.site ?? Astro.url);
 const openGraphImage = new URL("/open-graph.png", Astro.site ?? Astro.url);
