@@ -1,7 +1,12 @@
+html {
+  scrollbar-gutter: stable;
+}
+
 .site-shell {
   display: flex;
   flex-direction: column;
-  width: min(100%, 50rem);
+  inline-size: 100%;
+  max-inline-size: 50rem;
   margin-inline: auto;
 }
 
@@ -39,11 +44,5 @@
     height: 1.5rem;
     pointer-events: none;
     background: linear-gradient(to bottom, var(--color-background), transparent);
-  }
-}
-
-@media (max-width: 26.249rem) {
-  .site-shell {
-    width: 100%;
   }
 }

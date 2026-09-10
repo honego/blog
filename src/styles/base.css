@@ -21,7 +21,6 @@ table {
 html {
   min-width: 20rem;
   background: var(--color-background);
-  scrollbar-gutter: stable both-edges;
   scroll-behavior: smooth;
   text-rendering: geometricprecision;
 }
