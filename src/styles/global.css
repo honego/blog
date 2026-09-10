@@ -5,10 +5,13 @@
 @import "./theme.css";
 @import "./base.css";
 @import "./layout.css";
-@import "./prose.css";
+@import "./typography.css";
+@import "./typography-headings.css";
+@import "./typography-inline.css";
+@import "./typography-block.css";
+@import "./typography-lists.css";
+@import "./typography-tables.css";
 @import "./code.css";
 @import "./media.css";
-
-@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

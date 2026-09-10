@@ -1,0 +1,58 @@
+.post-content :where(ul, ol) {
+  padding-inline-start: 1.5rem;
+}
+
+.post-content :where(ul) {
+  list-style-type: disc;
+}
+
+.post-content :where(ol) {
+  list-style-type: decimal;
+}
+
+.post-content :where(ol[type="A"]) {
+  list-style-type: upper-alpha;
+}
+
+.post-content :where(ol[type="a"]) {
+  list-style-type: lower-alpha;
+}
+
+.post-content :where(ol[type="I"]) {
+  list-style-type: upper-roman;
+}
+
+.post-content :where(ol[type="i"]) {
+  list-style-type: lower-roman;
+}
+
+.post-content :where(li) {
+  margin-block-start: 0.5em;
+  padding-inline-start: 0.25rem;
+}
+
+.post-content :where(li)::marker {
+  color: var(--color-text-faint);
+}
+
+.post-content :where(li > p) {
+  margin-block: 0;
+}
+
+.post-content :where(li > ul, li > ol) {
+  margin-block: 0.5em 0;
+}
+
+.post-content :where(ul.contains-task-list) {
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+.post-content :where(li.task-list-item) {
+  padding-inline-start: 0;
+}
+
+.post-content :where(li.task-list-item > input[type="checkbox"]) {
+  margin-inline-end: 0.5em;
+  accent-color: var(--color-text-strong);
+}

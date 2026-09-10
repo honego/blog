@@ -1,0 +1,38 @@
+.post-content :where(table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+.post-content :where(thead) {
+  border-block-end: 1.5px solid var(--color-border);
+}
+
+.post-content :where(tr) {
+  border-block-end: 1px solid var(--color-border);
+}
+
+.post-content :where(th, td) {
+  min-width: 8rem;
+  padding: 0.5em 0.75em;
+  text-align: start;
+  vertical-align: top;
+}
+
+.post-content :where(th) {
+  color: var(--color-text-strong);
+  font-weight: 620;
+}
+
+.post-content :where(td) {
+  color: var(--color-text);
+}
+
+.post-content :where(td > :first-child) {
+  margin-block-start: 0;
+}
+
+.post-content :where(td > :last-child) {
+  margin-block-end: 0;
+}

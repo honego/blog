@@ -1,11 +1,4 @@
-/* Image zoom, centering, and historical raw HTML image compatibility */
-.post-content img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin-inline: auto;
-}
-
+/* Paired image layout and historical raw HTML image compatibility */
 .post-content p:has(> img + img) {
   display: flex;
   align-items: flex-start;
@@ -43,18 +36,4 @@
 .video-sized video {
   height: 100%;
   object-fit: contain;
-}
-
-/* medium-zoom runtime UI */
-.medium-zoom-overlay {
-  z-index: 20;
-  transition: opacity 360ms ease-out !important;
-}
-
-.medium-zoom-image--opened {
-  z-index: 20;
-}
-
-body .medium-zoom-image {
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }

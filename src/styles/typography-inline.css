@@ -1,0 +1,35 @@
+.post-content :where(a) {
+  color: inherit;
+  font-weight: normal;
+  text-decoration-color: var(--color-border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.post-content :where(a:hover) {
+  text-decoration-color: currentColor;
+}
+
+.post-content :where(strong, b) {
+  color: var(--color-text-strong);
+  font-weight: 620;
+}
+
+.post-content :where(em, i) {
+  font-style: italic;
+}
+
+.post-content :where(del, s) {
+  color: var(--color-text-muted);
+}
+
+.post-content :where(mark) {
+  padding-inline: 0.12em;
+  background: var(--color-selection);
+  color: var(--color-selection-text);
+}
+
+.post-content :where(abbr[title]) {
+  text-decoration: underline dotted;
+  cursor: help;
+}
