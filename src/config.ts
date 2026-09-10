@@ -24,6 +24,5 @@ export const ANALYTICS: { src: string; websiteId: string } | null = {
 export const NAV_ITEMS = [
   { href: "/", label: "首页" },
   { href: "/tags", label: "标签" },
-  { href: "/images", label: "图集" },
   { href: "/about", label: "关于" },
 ] as const;
