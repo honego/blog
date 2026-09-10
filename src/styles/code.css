@@ -24,9 +24,9 @@ prose-content .code-block {
 prose-content .code-block > pre {
   margin: 0;
   padding-block: 0.75rem;
-  padding-inline: 1rem;
-  font-size: 0.8rem;
-  line-height: 1.12rem;
+  padding-inline: 0.75rem;
+  font-size: 0.825rem; /* 13.2px */
+  line-height: 1.2rem; /* 19.2px */
 }
 
 prose-content .code-block > button {
