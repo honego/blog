@@ -27,7 +27,7 @@ type Props = {
 const { tag, posts } = Astro.props;
 ---
 
-<SiteLayout title={tag} description={`Posts tagged ${tag}.`}>
+<SiteLayout title={tag} description={`标签「${tag}」下的博客文章。`}>
   <h1>{tag}</h1>
   <PostList entries={posts} />
 </SiteLayout>
