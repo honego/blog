@@ -7,8 +7,8 @@ const copiedIcon = `
   </svg>
 `;
 
-document.querySelectorAll<HTMLButtonElement>(".post-content .copy-button").forEach((button) => {
-  const code = button.parentElement?.querySelector("pre.astro-code code");
+document.querySelectorAll<HTMLButtonElement>("prose-content [data-code-copy]").forEach((button) => {
+  const code = button.parentElement?.querySelector("pre code");
   if (!code) return;
 
   const idleIcon = button.innerHTML;

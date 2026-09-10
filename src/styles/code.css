@@ -1,41 +1,42 @@
 /* Inline code styling; fenced code remains owned by Astro Shiki. */
-.post-content :where(code):not(:where(pre code)) {
+prose-content :where(code, .astro-code, .code-block) {
+  font-family: var(--font-mono);
+}
+
+prose-content :where(code):not(:where(pre code)) {
   padding: 0.125rem 0.25rem;
   border: 0;
   border-radius: 0.25rem;
   background: var(--color-code-bg);
   color: var(--color-code-fg);
-  font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 500;
   box-shadow: none;
 }
 
-.post-content :where(code):not(:where(pre code))::before,
-.post-content :where(code):not(:where(pre code))::after {
-  content: none;
-}
-
 /* Code block copy interaction */
-.post-content .copy-code-wrapper {
+prose-content .code-block {
   position: relative;
+  inline-size: 96%;
   margin-block: 1.5rem;
+  margin-inline: auto;
 }
 
-.post-content .copy-code-wrapper > pre {
+prose-content .code-block > pre {
   margin: 0;
+  font-size: 0.85rem;
 }
 
-.post-content .copy-button {
+prose-content .code-block > button {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  inline-size: 2rem;
+  block-size: 2rem;
   margin: 0;
   padding: 0;
   border: 1px solid var(--color-border);
@@ -50,23 +51,23 @@
   transition: 150ms ease-out;
 }
 
-.post-content .copy-code-wrapper:hover .copy-button,
-.post-content .copy-button:focus-visible,
-.post-content .copy-button[data-copy-state="copied"] {
+prose-content .code-block:hover > button,
+prose-content .code-block > button:focus-visible,
+prose-content .code-block > button[data-copy-state="copied"] {
   opacity: 1;
   pointer-events: auto;
 }
 
-.post-content .copy-button:hover {
+prose-content .code-block > button:hover {
   color: var(--color-text-strong);
 }
 
-.post-content .copy-button:focus-visible {
+prose-content .code-block > button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
-.post-content .copy-button svg {
+prose-content .code-block > button svg {
   display: block;
 }
 
@@ -80,7 +81,7 @@
 }
 
 @media (hover: none) {
-  .post-content .copy-button {
+  prose-content .code-block > button {
     opacity: 1;
     pointer-events: auto;
   }

@@ -1,4 +1,4 @@
-.post-content :where(h1, h2, h3, h4, h5, h6) {
+prose-content :where(h1, h2, h3, h4, h5, h6) {
   margin-block: 1.75rem 0.75rem;
   color: var(--color-text-strong);
   font-weight: 620;
@@ -6,22 +6,22 @@
   text-wrap: balance;
 }
 
-.post-content :where(h1) {
+prose-content :where(h1) {
   font-size: 1.75rem;
 }
 
-.post-content :where(h2) {
+prose-content :where(h2) {
   font-size: 1.5rem;
 }
 
-.post-content :where(h3) {
+prose-content :where(h3) {
   font-size: 1.25rem;
 }
 
-.post-content :where(h4) {
+prose-content :where(h4) {
   font-size: 1.125rem;
 }
 
-.post-content :where(h5, h6) {
+prose-content :where(h5, h6) {
   font-size: 1rem;
 }

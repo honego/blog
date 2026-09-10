@@ -12,6 +12,7 @@
     "@astrojs/markdown-satteri": "^0.4.0",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@lucide/astro": "^1.28.0",
     "astro": "^7.3.1",
     "medium-zoom-next": "^2.0.1",
@@ -21,8 +22,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@11.25.0"

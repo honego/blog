@@ -20,9 +20,9 @@ const createCopyButton = () => ({
   type: "element",
   tagName: "button",
   properties: {
-    className: ["copy-button"],
     type: "button",
     ariaLabel: "Copy code",
+    dataCodeCopy: "",
     dataCopyState: "idle",
   },
   children: [
@@ -48,7 +48,7 @@ const createCopyButton = () => ({
 });
 
 export default defineHastPlugin({
-  name: "copy-code",
+  name: "code-block",
   element: {
     filter: ["pre"],
     visit(node) {
@@ -57,7 +57,7 @@ export default defineHastPlugin({
       return {
         type: "element",
         tagName: "div",
-        properties: { className: ["copy-code-wrapper"] },
+        properties: { className: ["code-block"] },
         children: [createCopyButton(), node],
       };
     },

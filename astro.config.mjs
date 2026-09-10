@@ -1,6 +1,5 @@
 import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
-import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import { SITE } from "./src/config.ts";
 import copyCodeBlocks from "./src/plugins/copy-code.mjs";
@@ -25,9 +24,6 @@ export default defineConfig({
   ],
   build: {
     format: "preserve",
-  },
-  vite: {
-    plugins: [tailwindcss()],
   },
   integrations: [
     sitemap({

@@ -1,9 +1,6 @@
-@layer theme, base, components, utilities;
-
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
-@import "./theme.css";
-@import "./base.css";
+@import "./reset.css";
+@import "./color.css";
+@import "./fonts.css";
 @import "./layout.css";
 @import "./typography.css";
 @import "./typography-headings.css";
@@ -13,5 +10,3 @@
 @import "./typography-tables.css";
 @import "./code.css";
 @import "./media.css";
-
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

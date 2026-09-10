@@ -1,0 +1,15 @@
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+
+:root {
+  --font-mono: "JetBrains Mono Variable", monospace;
+  font-family: var(--font-serif);
+  font-synthesis: none;
+}
+
+body {
+  font-size: 0.9375rem;
+  font-feature-settings: "calt", "liga", "kern";
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+}

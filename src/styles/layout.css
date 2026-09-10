@@ -1,5 +1,18 @@
+:root {
+  --page-padding: 1.5rem;
+}
+
 html {
   scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  padding: var(--page-padding);
+  padding-block-end: 0;
 }
 
 .site-shell {
@@ -10,39 +23,37 @@ html {
   margin-inline: auto;
 }
 
-.content-panel {
-  width: 100%;
-  min-width: 0;
+.site-shell > main {
+  inline-size: 100%;
+  min-inline-size: 0;
 }
 
 .top-fade {
   display: none;
 }
 
-.page-title {
-  margin: 0 0 1.75rem;
-  font-size: inherit;
-}
-
-.page-section + .page-section {
-  margin-top: 4.5rem;
-}
-
-.section-heading {
-  margin: 0 0 1rem;
-  font-size: 1rem;
-}
-
 @media (max-width: 39.999rem) {
   .top-fade {
     position: fixed;
     z-index: 10;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     display: block;
-    width: 100%;
-    height: 1.5rem;
+    inline-size: 100%;
+    block-size: 1.5rem;
     pointer-events: none;
     background: linear-gradient(to bottom, var(--color-background), transparent);
+  }
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --page-padding: 2.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-padding: 3.5rem;
   }
 }

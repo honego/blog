@@ -9,10 +9,10 @@ const isVideoUrl = (url) => /^(?:https?:\/\/|\.{0,2}\/)/.test(url) || !/^[a-z][\
 const playerSize = ({ width, height }) =>
   /^[1-9]\d*$/.test(width) && /^[1-9]\d*$/.test(height)
     ? {
-        className: " video-sized",
-        style: ` style="max-width:${width}px;aspect-ratio:${width}/${height}"`,
+        sizedAttribute: " data-video-sized",
+        style: ` style="max-inline-size:${width}px;aspect-ratio:${width}/${height}"`,
       }
-    : { className: "", style: "" };
+    : { sizedAttribute: "", style: "" };
 
 export default {
   name: "video",
@@ -29,7 +29,7 @@ export default {
 
       return {
         raw: [
-          `<div class="video-player${size.className}"${size.style}><video src="${escapeAttribute(src)}"${posterAttribute}`,
+          `<div class="video-player"${size.sizedAttribute}${size.style}><video src="${escapeAttribute(src)}"${posterAttribute}`,
           ` controls preload="metadata"></video></div>`,
         ].join(""),
         mdxExpressions: false,
@@ -46,7 +46,7 @@ export default {
 
     return {
       raw: [
-        `<div class="video-player video-embed${size.className}"${size.style}><iframe src="${escapeAttribute(src)}" title="${title}" loading="lazy"`,
+        `<div class="video-player" data-video-kind="embed"${size.sizedAttribute}${size.style}><iframe src="${escapeAttribute(src)}" title="${title}" loading="lazy"`,
         ` allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`,
       ].join(""),
       mdxExpressions: false,

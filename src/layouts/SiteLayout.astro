@@ -27,10 +27,8 @@ const { title, description, type, publishedTime } = Astro.props;
     <div class="top-fade" aria-hidden="true"></div>
     <div class="site-shell">
       <SiteHeader />
-      <main id="main-content" class="content-panel">
-        <div class="page-content">
-          <slot />
-        </div>
+      <main id="main-content">
+        <slot />
       </main>
     </div>
     <SiteFooter />

@@ -1,8 +1,4 @@
 :root {
-  --page-padding: 1.5rem;
-  --content-gutter: 1.5rem;
-  --content-width: 42rem;
-  --side-nav-width: 4rem;
   --color-background: #fcfcfc;
   --color-surface: #f7f7f7;
   --color-text-strong: #1e2125;
@@ -12,12 +8,9 @@
   --color-border: rgba(110, 119, 130, 0.27);
   --color-selection: rgba(149, 165, 172, 0.25);
   --color-selection-text: #32445d;
-  --color-code-bg: #ececec; /* Inline code background */
-  --color-code-fg: #be3b6c; /* Inline code foreground */
-  --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --color-code-bg: #ececec;
+  --color-code-fg: #be3b6c;
   color-scheme: light;
-  font-family: var(--font-serif);
-  font-synthesis: none;
 }
 
 :root[data-theme="dark"] {
@@ -35,16 +28,17 @@
   color-scheme: dark;
 }
 
-@media (min-width: 40rem) {
-  :root {
-    --page-padding: 2.5rem;
-    --content-gutter: 2.5rem;
-  }
+html,
+body {
+  background: var(--color-background);
 }
 
-@media (min-width: 48rem) {
-  :root {
-    --page-padding: 3.5rem;
-    --content-gutter: 3.5rem;
-  }
+body {
+  color: var(--color-text);
+  transition: background-color 150ms ease-out;
+}
+
+::selection {
+  background: var(--color-selection);
+  color: var(--color-selection-text);
 }

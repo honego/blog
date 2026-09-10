@@ -6,7 +6,7 @@ type LegacyMediaQueryList = {
 };
 
 const root = document.documentElement;
-const themeButton = document.getElementById("theme-toggle");
+const themeButton = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
 const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
 const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -25,7 +25,6 @@ const readStoredTheme = (): Theme | null => {
 const writeTheme = (theme: Theme) => {
   try {
     localStorage.setItem(THEME_KEY, theme);
-    localStorage.removeItem("theme-mode");
   } catch {}
 };
 

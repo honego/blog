@@ -23,10 +23,10 @@ const images = Object.entries(imageModules).map(([path, module]) => ({
 
 <SiteLayout title="Images" description="A growing collection of photographs and visual notes.">
   <h1 class="visually-hidden">Images</h1>
-  <div class="image-list" data-image-list>
+  <ul class="image-list" data-image-list>
     {
       images.map(({ src, alt }) => (
-        <div class="image-item">
+        <li class="image-item">
           <Image
             src={src}
             alt={alt}
@@ -37,10 +37,10 @@ const images = Object.entries(imageModules).map(([path, module]) => ({
             loading="lazy"
             decoding="async"
           />
-        </div>
+        </li>
       ))
     }
-  </div>
+  </ul>
 
   <script>
     const imageList = document.querySelector("[data-image-list]");
@@ -63,26 +63,27 @@ const images = Object.entries(imageModules).map(([path, module]) => ({
     display: flex;
     flex-wrap: wrap;
     gap: 0.875rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .image-item {
     display: flex;
     flex: 1 1 33.333%;
-    max-width: calc(50% - 0.4375rem);
+    max-inline-size: calc(50% - 0.4375rem);
     align-items: center;
     background: linear-gradient(135deg, var(--color-surface), transparent);
   }
 
   .image-item :global(img) {
-    display: block;
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
   }
 
   @media (max-width: 39.999rem) {
     .image-item {
-      min-width: 100%;
-      max-width: 100%;
+      min-inline-size: 100%;
+      max-inline-size: 100%;
     }
   }
 </style>

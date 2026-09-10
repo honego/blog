@@ -1,14 +1,14 @@
-/* Paired image layout and historical raw HTML image compatibility */
-.post-content p:has(> img + img) {
+/* Paired image layout */
+prose-content p:has(> img + img) {
   display: flex;
   align-items: flex-start;
   gap: 2%;
 }
 
-.post-content p:has(> img + img) > img {
+prose-content p:has(> img + img) > img {
   flex: 1 1 0;
-  width: 0 !important;
-  min-width: 0;
+  inline-size: 0 !important;
+  min-inline-size: 0;
   margin-block: 0;
 }
 
@@ -17,23 +17,23 @@
   margin-block: 2rem;
 }
 
-.video-embed {
+.video-player[data-video-kind="embed"] {
   aspect-ratio: 16 / 9;
 }
 
 .video-player :where(video, iframe) {
   display: block;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   margin: 0;
   border: 0;
 }
 
 .video-player video {
-  height: auto;
+  block-size: auto;
 }
 
-.video-sized video {
-  height: 100%;
+.video-player[data-video-sized] video {
+  block-size: 100%;
   object-fit: contain;
 }

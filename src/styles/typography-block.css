@@ -1,8 +1,8 @@
-.post-content :where(blockquote, ul, ol, table, figure, hr, details, dl) {
+prose-content :where(blockquote, ul, ol, table, figure, hr, details, dl) {
   margin-block: 0 1.5em;
 }
 
-.post-content :where(blockquote) {
+prose-content :where(blockquote) {
   margin-inline: 0;
   padding-inline-start: 1.25em;
   border-inline-start: 2px solid var(--color-border);
@@ -10,31 +10,31 @@
   font-style: normal;
 }
 
-.post-content :where(blockquote) :where(p, li) {
+prose-content :where(blockquote) :where(p, li) {
   color: inherit;
 }
 
-.post-content :where(hr) {
-  height: 0;
+prose-content :where(hr) {
+  block-size: 0;
   margin-block: 2.5rem;
   border: 0;
   border-block-start: 1px solid var(--color-border);
 }
 
-.post-content :where(figure) {
+prose-content :where(figure) {
   margin-inline: 0;
 }
 
-.post-content :where(img, video) {
+prose-content :where(img, video) {
   margin-block: 2em;
   margin-inline: auto;
 }
 
-.post-content :where(figure) :where(img, video) {
+prose-content :where(figure) :where(img, video) {
   margin-block: 0;
 }
 
-.post-content :where(figcaption) {
+prose-content :where(figcaption) {
   margin-block-start: 0.75em;
   color: var(--color-text-muted);
   font-size: 0.875rem;
@@ -42,22 +42,46 @@
   text-align: center;
 }
 
-.post-content :where(summary) {
+prose-content :where(summary) {
   color: var(--color-text-strong);
   font-weight: 620;
   cursor: pointer;
 }
 
-.post-content :where(details[open] > summary) {
+prose-content :where(details[open] > summary) {
   margin-block-end: 0.75em;
 }
 
-.post-content :where(dt) {
+prose-content :where(dt) {
   color: var(--color-text-strong);
   font-weight: 620;
 }
 
-.post-content :where(dd) {
+prose-content :where(dd) {
   margin-inline-start: 1.5em;
   margin-block-end: 0.75em;
+}
+
+prose-content :where([data-footnotes]) {
+  margin-block: 2.5rem 0;
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+prose-content :where([data-footnotes] > h2) {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+prose-content :where([data-footnote-ref], [data-footnote-backref]) {
+  text-decoration: none;
 }

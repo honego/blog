@@ -28,6 +28,15 @@ const { tag, posts } = Astro.props;
 ---
 
 <SiteLayout title={tag} description={`Posts tagged ${tag}.`}>
-  <h1 class="page-title">{tag}</h1>
+  <h1>{tag}</h1>
   <PostList entries={posts} />
 </SiteLayout>
+
+<style>
+  h1 {
+    margin-block: 0 1.75rem;
+    color: var(--color-text-strong);
+    font-size: inherit;
+    font-weight: 620;
+  }
+</style>

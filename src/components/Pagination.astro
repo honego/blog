@@ -9,22 +9,22 @@ type Props = {
 const { currentPage, lastPage, prev, next } = Astro.props;
 ---
 
-<nav class="pagination" aria-label="分页导航">
+<nav aria-label="分页导航">
   <ul>
-    <li class="prev">{prev && <a href={prev}>{"< Prev"}</a>}</li>
-    <li class="current">{currentPage} of {lastPage}</li>
-    <li class="next">{next && <a href={next}>{"Next >"}</a>}</li>
+    <li>{prev && <a href={prev}>{"< Prev"}</a>}</li>
+    <li aria-current="page">{currentPage} of {lastPage}</li>
+    <li>{next && <a href={next}>{"Next >"}</a>}</li>
   </ul>
 </nav>
 
 <style>
-  .pagination {
-    margin-top: 3.5rem;
+  nav {
+    margin-block-start: 3.5rem;
     font-size: 1rem;
     line-height: 1.5rem;
   }
 
-  .pagination ul {
+  ul {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -33,25 +33,25 @@ const { currentPage, lastPage, prev, next } = Astro.props;
     list-style: none;
   }
 
-  .prev {
-    text-align: left;
+  li:first-child {
+    text-align: start;
   }
 
-  .current {
+  [aria-current="page"] {
     color: var(--color-text-faint);
     text-align: center;
   }
 
-  .next {
-    text-align: right;
+  li:last-child {
+    text-align: end;
   }
 
-  .pagination a {
+  a {
     color: var(--color-text-strong);
     text-decoration: none;
   }
 
-  .pagination a:is(:hover, :focus-visible) {
+  a:is(:hover, :focus-visible) {
     text-decoration: underline;
   }
 </style>
