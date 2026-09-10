@@ -1,0 +1,115 @@
+---
+import { getCollection, render } from "astro:content";
+import SiteLayout from "@layouts/SiteLayout.astro";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const archiveEntries = await Promise.all(
+  posts.map(async (post) => {
+    const { remarkPluginFrontmatter } = await render(post);
+
+    return { post, words: remarkPluginFrontmatter.readingTime.words };
+  }),
+);
+const totalWords = archiveEntries.reduce((total, { words }) => total + words, 0);
+const postsByYear = new Map<number, typeof archiveEntries>();
+
+for (const entry of archiveEntries) {
+  const year = entry.post.data.date.getUTCFullYear();
+  const entries = postsByYear.get(year);
+
+  if (entries) {
+    entries.push(entry);
+  } else {
+    postsByYear.set(year, [entry]);
+  }
+}
+
+const years = [...postsByYear].sort(([a], [b]) => b - a);
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "2-digit",
+  timeZone: "UTC",
+});
+---
+
+<SiteLayout title="归档" description="博客文章归档。">
+  <h1 class="visually-hidden">归档</h1>
+  <p class="summary">共 {archiveEntries.length} 篇文章，约 {totalWords.toLocaleString("en-US")} 字。</p>
+  {
+    years.map(([year, entries]) => (
+      <section>
+        <h2>{year}</h2>
+        <ul>
+          {entries.map(({ post }) => (
+            <li>
+              <a href={`/${post.data.id}.html`}>{post.data.title}</a>
+              <time datetime={post.data.date.toISOString()}>{dateFormatter.format(post.data.date)}</time>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</SiteLayout>
+
+<style>
+  .summary {
+    margin-block: 0 2rem;
+    color: var(--color-text-muted);
+  }
+
+  section + section {
+    margin-block-start: 2rem;
+  }
+
+  h2 {
+    margin-block: 0 0.5rem;
+    color: var(--color-text-strong);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-block: 0.25rem;
+  }
+
+  a {
+    min-inline-size: 0;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--color-text-strong);
+  }
+
+  a:focus-visible {
+    border-radius: 0.15rem;
+    outline: 1px dotted var(--color-text-muted);
+    outline-offset: 2px;
+  }
+
+  time {
+    flex: none;
+    margin-inline-start: auto;
+    color: var(--color-text-faint);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.25rem;
+    white-space: nowrap;
+  }
+</style>
