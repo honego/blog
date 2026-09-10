@@ -1,7 +1,4 @@
-@import "@fontsource-variable/jetbrains-mono/wght.css";
-
 :root {
-  --font-mono: "JetBrains Mono Variable", monospace;
   font-family: var(--font-serif);
   font-synthesis: none;
 }

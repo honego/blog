@@ -21,6 +21,16 @@ export default defineConfig({
       fallbacks: ["ui-serif", "Georgia", "Times New Roman", "serif"],
       display: "swap",
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-mono",
+      weights: ["100 800"],
+      styles: ["normal"],
+      subsets: ["cyrillic-ext", "cyrillic", "greek", "vietnamese", "latin-ext", "latin"],
+      fallbacks: ["monospace"],
+      display: "swap",
+    },
   ],
   build: {
     format: "preserve",
