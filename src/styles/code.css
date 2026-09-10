@@ -17,14 +17,16 @@ prose-content :where(code):not(:where(pre code)) {
 /* Code block copy interaction */
 prose-content .code-block {
   position: relative;
-  inline-size: 96%;
+  inline-size: 100%;
   margin-block: 1.5rem;
-  margin-inline: auto;
 }
 
 prose-content .code-block > pre {
   margin: 0;
-  font-size: 0.85rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 prose-content .code-block > button {
