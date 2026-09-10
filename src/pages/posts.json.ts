@@ -5,7 +5,12 @@ export const GET: APIRoute = async () => {
   const posts = (await getCollection("posts", ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
     .map(({ data }) => ({
+      id: data.id,
       title: data.title,
+      description: data.description,
+      date: data.date.toISOString(),
+      updated: data.updated?.toISOString() ?? null,
+      tags: data.tags,
       href: `/${data.id}.html`,
     }));
 

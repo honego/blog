@@ -70,7 +70,7 @@ $accent: #0969da;
 ```
 
 ```javascript
-const posts = await fetch("/search.json").then((response) => response.json());
+const posts = await fetch("/posts.json").then((response) => response.json());
 const titles = posts.map(({ title }) => title);
 console.log(titles);
 ```

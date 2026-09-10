@@ -16,7 +16,7 @@
   let items: SearchItem[] | undefined;
 
   const loadItems = async () => {
-    const response = await fetch("/search.json");
+    const response = await fetch("/posts.json");
     if (!response.ok) throw new Error("Failed to load search index");
     const data: SearchData = await response.json();
     items = data.posts;
