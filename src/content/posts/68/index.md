@@ -1,7 +1,7 @@
 ---
 id: 68
 title: 迥异尘嚣 内江一瞬
-description: 穿行内江老城，在喧嚣之外寻得片刻宁静
+description: 甜城内江，在过去与现在之间走走停停
 date: 2025-11-06
 tags:
   - 随笔

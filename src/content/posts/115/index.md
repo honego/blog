@@ -1,7 +1,7 @@
 ---
 id: 115
 title: 写在2025年末
-description: 一场沉沦的结束和新的沉沦的开始
+description: 或是一场沉沦的结束又或是新的沉沦的开始
 date: 2025-12-31
 tags:
   - 随笔
