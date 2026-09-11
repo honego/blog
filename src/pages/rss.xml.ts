@@ -10,6 +10,7 @@ export const GET: APIRoute = async (context) => {
     title: SITE.title,
     description: SITE.description,
     site: context.site!,
+    customData: `<language>${SITE.lang}</language>`,
     // RSS item 映射保留在接口内, 只复用文章范围和永久链接规则
     items: posts.map((post) => ({
       title: post.data.title,
