@@ -1,7 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getPostHref } from "@lib/posts";
 import FormattedDate from "./FormattedDate.astro";
 
+// 列表中的文章链接统一使用永久链接规则, 避免组件自行拼接 URL
 type Props = {
   entries: CollectionEntry<"posts">[];
 };
@@ -18,7 +20,7 @@ const { entries } = Astro.props;
             <FormattedDate date={entry.data.date} />
           </div>
           <h2>
-            <a href={`/${entry.data.id}.html`}>{entry.data.title}</a>
+            <a href={getPostHref(entry.data.id)}>{entry.data.title}</a>
           </h2>
           <p>{entry.data.description}</p>
         </article>

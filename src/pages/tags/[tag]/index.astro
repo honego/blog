@@ -1,15 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 import PostList from "@components/PostList.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import { getPublishedPosts } from "@lib/posts";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-  );
+  const posts = await getPublishedPosts();
   const tags = [...new Set(posts.flatMap(({ data }) => data.tags))];
 
+  // 标签过滤是页面专属逻辑, 这里只复用公开文章和默认排序规则
   return tags.map((tag) => ({
     params: { tag },
     props: {

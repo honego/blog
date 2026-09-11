@@ -1,24 +1,21 @@
 import rss from "@astrojs/rss";
-import { getCollection, type CollectionEntry } from "astro:content";
 import type { APIRoute } from "astro";
+import { getPostHref, getPublishedPosts } from "@lib/posts";
 import { SITE } from "../config";
 
-type Post = CollectionEntry<"posts">;
-
 export const GET: APIRoute = async (context) => {
-  const posts = (await getCollection("posts"))
-    .filter((post: Post) => !post.data.draft)
-    .sort((a: Post, b: Post) => b.data.date.valueOf() - a.data.date.valueOf());
+  const posts = await getPublishedPosts();
 
   return rss({
     title: SITE.title,
     description: SITE.description,
     site: context.site!,
-    items: posts.map((post: Post) => ({
+    // RSS item 映射保留在接口内, 只复用文章范围和永久链接规则
+    items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.date,
-      link: `/${post.data.id}.html`,
+      link: getPostHref(post.data.id),
     })),
   });
 };

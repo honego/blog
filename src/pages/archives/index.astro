@@ -1,10 +1,10 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import { getPostHref, getPublishedPosts } from "@lib/posts";
 
-const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+// 归档仅复用全站文章规则, 年份分组和字数统计仍由本页面负责
+const posts = await getPublishedPosts();
 const archiveEntries = await Promise.all(
   posts.map(async (post) => {
     const { remarkPluginFrontmatter } = await render(post);
@@ -44,7 +44,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
         <ul>
           {entries.map(({ post }) => (
             <li>
-              <a href={`/${post.data.id}.html`}>{post.data.title}</a>
+              <a href={getPostHref(post.data.id)}>{post.data.title}</a>
               <time datetime={post.data.date.toISOString()}>{dateFormatter.format(post.data.date)}</time>
             </li>
           ))}

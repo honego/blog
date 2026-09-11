@@ -8,6 +8,9 @@ export const SITE = {
   github: "https://github.com/honeok", // GitHub 主页
 } as const;
 
+// 每页显示的文章数量, 仅用于文章列表分页
+export const POSTS_PER_PAGE = 10;
+
 // 备案信息 设置为 null 时不显示
 export const FILING: { label: string; href: string } | null = {
   label: "萌ICP备20256611号",

@@ -1,17 +1,17 @@
 ---
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 import Pagination from "@components/Pagination.astro";
 import PostList from "@components/PostList.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import { getPublishedPosts } from "@lib/posts";
+import { POSTS_PER_PAGE } from "../../../config";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-  );
+  const posts = await getPublishedPosts();
 
-  return paginate(posts, { pageSize: 10 }).filter(({ props }) => props.page.currentPage > 1);
+  // 分页数量属于列表展示配置, 不限制共享查询返回的文章范围
+  return paginate(posts, { pageSize: POSTS_PER_PAGE }).filter(({ props }) => props.page.currentPage > 1);
 }) satisfies GetStaticPaths;
 
 type Props = { page: Page<CollectionEntry<"posts">> };

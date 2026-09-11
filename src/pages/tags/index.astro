@@ -1,8 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import SiteLayout from "@layouts/SiteLayout.astro";
+import { isPublished } from "@lib/posts";
 
-const posts = await getCollection("posts", ({ data }) => !data.draft);
+// 标签统计只需要全部公开文章, 不依赖默认日期排序
+const posts = await getCollection("posts", isPublished);
 const tagCounts = posts
   .flatMap(({ data }) => data.tags)
   .reduce((counts, tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1), new Map<string, number>());

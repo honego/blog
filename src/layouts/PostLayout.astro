@@ -1,8 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@components/FormattedDate.astro";
+import { getPostHref } from "@lib/posts";
 import SiteLayout from "./SiteLayout.astro";
 
+// 下一篇文章链接复用全站永久链接规则, 保持各入口 URL 一致
 type Props = {
   title: string;
   description: string;
@@ -51,7 +53,7 @@ const { title, description, date, updated, readingTime, tags, nextPost } = Astro
       <nav aria-label="下一篇">
         <p>下一篇</p>
         <h2>
-          <a href={`/${nextPost.data.id}.html`}>{nextPost.data.title}</a>
+          <a href={getPostHref(nextPost.data.id)}>{nextPost.data.title}</a>
         </h2>
         <p>{nextPost.data.description}</p>
       </nav>
