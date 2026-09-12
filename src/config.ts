@@ -8,8 +8,14 @@ export const SITE = {
   github: "https://github.com/honeok", // GitHub 主页
 } as const;
 
+// Content frontmatter 中日期时间采用的写作时区
+export const CONTENT_TIME_ZONE = "Asia/Shanghai";
+
 // 每页显示的文章数量, 仅用于文章列表分页
 export const POSTS_PER_PAGE = 10;
+
+// 每页显示的 Moments 数量
+export const MOMENTS_PER_PAGE = 20;
 
 // 备案信息 设置为 null 时不显示
 export const FILING: { label: string; href: string } | null = {
@@ -26,6 +32,7 @@ export const ANALYTICS: { src: string; websiteId: string } | null = {
 // 顶部导航
 export const NAV_ITEMS = [
   { href: "/", label: "首页" },
+  { href: "/moments", label: "瞬间" },
   { href: "/tags", label: "标签" },
   { href: "/archives", label: "归档" },
   { href: "/about", label: "关于" },

@@ -38,8 +38,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       serialize(item) {
-        if (/\/[1-9]\d*$/.test(item.url)) {
-          item.url += ".html";
+        const url = new URL(item.url);
+
+        if (/^\/[1-9]\d*$/.test(url.pathname)) {
+          url.pathname += ".html";
+          item.url = url.href;
         }
 
         return item;
